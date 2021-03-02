@@ -1,0 +1,47 @@
+.home-container{
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .file-content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .field{
+            input[type="file"] {
+                display: none;
+            }
+            .custom-file-upload {
+                border: 1px solid #ccc;
+                display: inline-block;
+                padding: 6px 12px;
+                cursor: pointer;
+            }
+        }
+        .upload-btn{
+            background-color: rgb(83, 17, 109);
+            border-radius: 0px;
+            color: #fff;
+        }
+    }
+}
+.modal.is-active{
+    .input{
+        border-radius: 0px;
+        border: 1px solid black;
+    }
+    .button{
+        border: 1px solid #fff;
+        background-color: purple;
+        color: #fff;
+        border-radius: 0px;
+    }
+}

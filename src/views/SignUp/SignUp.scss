@@ -1,0 +1,25 @@
+@import '../../styles/base.scss';
+.register-page{
+    .login-container{
+        background-color: #EBEBEB;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .form-container{
+            display: flex;
+            flex-direction: column;
+            background-color: #D9D9D9;
+            padding: 40px;
+            width: 680px;
+            height: 100hv;
+            .field{
+                .input{
+                    border: 1px solid #D9D9D9;
+                    border-radius: 0px;
+                }
+            }
+        }
+    }
+}
