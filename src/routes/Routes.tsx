@@ -13,13 +13,19 @@ import NotFound from "../views/NotFound";
 import SignUp from "../views/SignUp";
 import Verify from "../views/Verify";
 import Profile from "../views/Profile";
+import Landing from "../views/Landing/Landing";
+import Pricing from "../views/Landing/Pricing";
+import Features from "../views/Landing/Features/Features";
 
 export default function Routes() {
     return (
         <Router>
           <Switch>
-            <PrivateRoute exact path="/" isAuthenticated={true} component={Home} />
+            <PrivateRoute exact path="/profile" isAuthenticated={true} component={Home} />
+            <PrivateRoute exact path="/" isAuthenticated={true} component={Landing} />
+            <PrivateRoute exact path="/pricing" isAuthenticated={true} component={Pricing} />
             <PrivateRoute exact path="/profile" isAuthenticated={true} component={Profile} />
+            <PrivateRoute exact path="/features" isAuthenticated={true} component={Features} />
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/register" component={SignUp} />
             <Route exact path="/verify" component={Verify} />
