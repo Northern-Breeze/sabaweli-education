@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import Logo from '../assets/logo.png';
-
+import { Link } from 'react-router-dom';
 import './Template.scss';
 
 
@@ -24,13 +24,13 @@ export default function Template(props: { children: any; }) {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                    <a className="navbar-item">
-                        How it works?
-                    </a>
+                    <Link to="/features" className="navbar-item">
+                        Features
+                    </Link>
 
-                    <a className="navbar-item">
+                    <Link to="/pricing" className="navbar-item">
                        Pricing
-                    </a>
+                    </Link>
 
                     <div className="navbar-item has-dropdown is-hoverable">
                         <a className="navbar-link">
