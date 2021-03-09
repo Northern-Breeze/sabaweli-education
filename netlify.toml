@@ -34,6 +34,9 @@
 [context.deploy-preview]
   publish = "build/"
 
+[context.deploy]
+  publish = "build/"
+
 # Here is another way to define context specific environment variables.
 [context.deploy-preview.environment]
   ACCESS_TOKEN = "not so secret"

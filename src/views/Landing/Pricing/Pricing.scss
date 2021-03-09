@@ -1,0 +1,48 @@
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .cards{
+        background-color: whitesmoke;
+        padding: 10px;
+        max-width: 300px;
+        border: 0px 2px solid rgb(175, 153, 28) !important;
+        border-radius: 10px;
+        margin: 10px;
+        .price-header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 0.5px solid #000;
+        }
+        .price-header > * {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .price-price{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 30px;
+        }
+        .price-body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .price-footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 14px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+    }
+}

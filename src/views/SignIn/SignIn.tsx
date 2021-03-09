@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import {  notification } from 'antd';
+
 import './SignIn.scss';
 
 // Services
 import Server from '../../service/server';
-import Alert from '../../components/Alert';
 
 interface Account {
     email: string,
@@ -15,52 +15,110 @@ interface Account {
     data: any
 }
 
-interface ErrorState {
-    error: boolean,
-    message: string
-}
-
 export default function SignIn() {
     const { handleSubmit, register, errors } = useForm<Account>()
     const [loading ,setLoading] = React.useState(false);
-    const [erroState, setErrorState]  = React.useState<ErrorState>();
 
     const history = useHistory();
-
+    React.useEffect(() => {
+        const location = window.location.href.split('?');
+        if(location){
+            const value = location[1]
+            if (value) {
+                const token = value.split('=')[1]
+                if(token){
+                    Server.validateToken({
+                        token
+                    }).then(response => {
+                        if(response.status === 200){
+                            notification.open({
+                                message: 'Success',
+                                description: response.data.message,
+                                onClick: () => {
+                                  console.log('Notification Clicked!');
+                                },
+                              });
+                        } else {
+                            notification.open({
+                                message: 'Error',
+                                description: response.data.message,
+                                onClick: () => {
+                                  console.log('Notification Clicked!');
+                                },
+                              });
+                        }
+                    }).catch(error => {
+                        console.log(error);
+                        notification.open({
+                            message: 'Crash',
+                            description: 'Something went wrong please try again later',
+                            onClick: () => {
+                              console.log('Notification Clicked!');
+                            },
+                          });
+                    })
+                }
+            }
+        }
+    }, [])
     const onSubmit = async (value: Account) => {
         try {
             setLoading(true);
             const { email, password } = value;
-            const response = await axios.post('http://localhost:5000/v1/login',{
+
+            const response = await Server.loginUser({
                 email: email,
                 password: password,
             });
             const data = await response.data;
-            if(response.status === 200 || response.status === 201){
+            if(response.status === 200){
                 if(data.success){
-                    setErrorState({ error: false, message: data.message});
+                    notification.open({
+                        message: 'Success',
+                        description: data.message,
+                        onClick: () => {
+                          console.log('Notification Clicked!');
+                        },
+                      });
                     const token = data.token;
                     localStorage.setItem('token', token);
                     setLoading(false);
-                    history.push('/');
+                    history.push('/profile');
                 }else{
                     setLoading(false);
-                    setErrorState({ error: true, message: data.message});
+                    notification.open({
+                        message: 'Something happened',
+                        description: data.message,
+                        onClick: () => {
+                          console.log('Notification Clicked!');
+                        },
+                      });
                 }
-            }else if (response.status === 200) {
+            }else if (response.status === 400) {
                 setLoading(false);
-                setErrorState({ error: true, message: data.message});
+                notification.open({
+                    message: 'Something is wrong',
+                    description: data.message,
+                    onClick: () => {
+                      console.log('Notification Clicked!');
+                    },
+                  });
             }
             setLoading(false);
         } catch (error) {
             setLoading(false);
             console.log(error);
-            setErrorState({ error: true, message: 'something went wrong please try again'});
+            notification.open({
+                message: 'Error occurred',
+                description: 'Please try again',
+                onClick: () => {
+                  console.log('Notification Clicked!');
+                },
+              });;
         }
     };
     return (
         <div className="login-page">
-            <Alert erroState={erroState} />
             <div className="login-container">
                 <div className="form-container">
                     <form className="form" onSubmit={handleSubmit(onSubmit)}>
