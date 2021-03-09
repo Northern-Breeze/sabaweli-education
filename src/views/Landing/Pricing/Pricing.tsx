@@ -1,13 +1,13 @@
 import * as React from 'react'
+import { useHistory } from 'react-router-dom';
+
 import Template from '../../Template';
 
 import './Pricing.scss';
 
 
 export default function Pricing() {
-    React.useEffect(() => {
-        
-    }, [])
+    const history = useHistory();
     return (
         <Template>
             <div className="pricing-container">
@@ -24,7 +24,12 @@ export default function Pricing() {
                             GET 20 MB
                         </div>
                         <div className="price-buy">
-                            <button className="button">
+                            <button 
+                                className="button"
+                                onClick={() => {
+                                    history.push('/checkout', { packageType: 'baics', price: 2 })
+                                }}
+                                >
                                 GET STARTED
                             </button>
                         </div>
