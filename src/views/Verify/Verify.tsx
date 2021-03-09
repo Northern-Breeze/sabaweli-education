@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react'
 import { useLocation, useHistory } from 'react-router-dom';
-import Alert from '../../components/Alert';
 import Template from '../Template';
 
 import './Verify.scss';
@@ -46,7 +45,6 @@ export default function Verify() {
     return (
         <Template>
             <div className="verify-page-container">
-                <Alert erroState={severState} />
                 <div className="content">
                     <div className="button-container">
                         <button className="button" onClick={() => {
