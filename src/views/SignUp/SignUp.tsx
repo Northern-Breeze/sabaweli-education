@@ -1,12 +1,12 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
+import { notification } from 'antd';
+
 
 // Services
 import Server from '../../service/server';
 
-import Alert from '../../components/Alert';
 
 
 // Stylesheets
@@ -18,49 +18,66 @@ interface Account {
     name: string,
 }
 
-interface ErrorState {
-    error: boolean,
-    message: string
-}
-
 export default function SignUp() {
     const {  errors, handleSubmit, register} = useForm<Account>();
     const [loading, setLoading] = React.useState(false);
-    const [erroState, setErrorState]  = React.useState<ErrorState>();
     const history = useHistory()
     const onSubmit = async (value: Account) => {
         try {
             setLoading(true);
             const { email, password, name } = value;
-            const response = await axios.post('http://localhost:5000/v1/register',{
+            const response = await Server.registerUser({
                 email: email,
                 password: password,
-                name: name
+                username: name
             });
             const data = await response.data;
             if(response.status === 200 || response.status === 201){
                 if(data.success){
-                    setErrorState({ error: false, message: data.message});
+                    notification.open({
+                        message: 'Success',
+                        description: data.message,
+                        onClick: () => {
+                          console.log('Notification Clicked!');
+                        },
+                      });
                     setLoading(false);
                     history.push('/login');
                 }else{
                     setLoading(false);
-                    setErrorState({ error: true, message: data.message});
+                    notification.open({
+                        message: 'Error',
+                        description: data.message,
+                        onClick: () => {
+                          console.log('Notification Clicked!');
+                        },
+                      });
                 }
-            }else if (response.status === 200) {
+            } else {
                 setLoading(false);
-                setErrorState({ error: true, message: data.message});
+                notification.open({
+                    message: 'Error',
+                    description: data.message,
+                    onClick: () => {
+                      console.log('Notification Clicked!');
+                    },
+                  });
             }
             setLoading(false);
         } catch (error) {
             setLoading(false);
             console.log(error);
-            setErrorState({ error: true, message: 'something went wrong please try again'});
+            notification.open({
+                message: 'Crash',
+                description: 'Something went wrong please try again, later',
+                onClick: () => {
+                  console.log('Notification Clicked!');
+                },
+              });
         }
     }
     return (
         <div className="register-page">
-        <Alert erroState={erroState} />
         <div className="login-container">
             <div className="form-container">
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
