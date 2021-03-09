@@ -4,7 +4,6 @@ import React from 'react';
 
 // Components
 import Template from '../Template';
-import Alert from '../../components/Alert';
 import FileSize from '../../components/fileSizeLimit';
 // Styles
 import "./Home.scss";
@@ -68,7 +67,6 @@ export default function Home() {
     }
     return (
         <Template>
-            <Alert erroState={erroState} />
             <div className="home-container">
                     {isFilePicked && (
                         <div className="file-content">
