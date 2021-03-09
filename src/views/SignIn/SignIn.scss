@@ -1,7 +1,12 @@
-@import '../../styles/base.scss';
+@import '../../scss/base.scss';
 .login-page{
+    background-color: #EBEBEB;
+    .alert-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
     .login-container{
-        background-color: #EBEBEB;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -10,15 +15,25 @@
         .form-container{
             display: flex;
             flex-direction: column;
-            background-color: #D9D9D9;
+            background-color: whitesmoke;
             padding: 40px;
-            width: 680px;
+            min-width: 680px;
             height: 100hv;
+            -webkit-box-shadow: 3px 3px 5px 6px #ccc;  
+            -moz-box-shadow:    3px 3px 5px 6px #ccc; 
+            box-shadow: 3px 3px 5px 6px #ccc;
             .field{
                 .input{
                     border: 1px solid #D9D9D9;
                     border-radius: 0px;
                 }
+            }
+        }
+    }
+    @media only screen and (max-width: 600px){
+        .login-container{
+            .form-container{
+                min-width: 380px;
             }
         }
     }

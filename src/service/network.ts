@@ -2,7 +2,25 @@ import axios from 'axios';
 
 const baseURL: string = '';
 
-const instance = axios.create()
+const instance = axios.create({
+  validateStatus: (status: number) => {
+    let correct = false;
+
+    if (status >= 200 && status < 300) {
+      correct = true;
+    } else if (
+      status === 401 ||
+      status === 400 ||
+      status === 403 ||
+      status === 503 ||
+      status === 422
+    ) {
+      correct = true;
+    }
+
+    return correct;
+  },
+})
 
 instance.interceptors.request.use(async config => {
   if (config.url && config.url.charAt(0) === '/') {
@@ -17,7 +35,7 @@ instance.interceptors.request.use(async config => {
   
 instance.interceptors.request.use(async config => {
     const user = localStorage.getItem('user') || "";
-    const baseURL = 'http://localhost:5000/v1'
+    const baseURL = 'http://localhost:8080/api/v1'
     let token: string = '';
     if(user !== ''){
         const parsed = JSON.parse(user);
