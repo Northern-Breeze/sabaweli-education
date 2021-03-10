@@ -8,10 +8,10 @@ import {
 import PrivateRoute from './PrivateRoutes';
 
 import Home from '../views/Home'
-import SignIn from "../views/SignIn";
+import SignIn from "../views/Auth/SignIn";
 import NotFound from "../views/NotFound";
-import SignUp from "../views/SignUp";
-import Verify from "../views/Verify";
+import SignUp from "../views/Auth/SignUp";
+import Verify from "../views/Auth/Verify";
 import Profile from "../views/Profile";
 import Landing from "../views/Landing/Landing";
 import Pricing from "../views/Landing/Pricing";
