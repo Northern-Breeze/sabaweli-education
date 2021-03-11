@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useLocation, useHistory } from 'react-router-dom';
-import Template from '../Template';
+import Template from '../../Template';
 
 import './Verify.scss';
 

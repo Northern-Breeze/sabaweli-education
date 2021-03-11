@@ -27,7 +27,10 @@ export default function Pricing() {
                             <button 
                                 className="button"
                                 onClick={() => {
-                                    history.push('/checkout', { packageType: 'baics', price: 2 })
+                                    history.push({
+                                        pathname: '/checkout',
+                                        state: { package: 'basic', price: 2.00 }
+                                    })
                                 }}
                                 >
                                 GET STARTED

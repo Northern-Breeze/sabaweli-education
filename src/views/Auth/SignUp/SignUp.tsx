@@ -5,7 +5,7 @@ import { notification } from 'antd';
 
 
 // Services
-import Server from '../../service/server';
+import Server from '../../../service/server';
 
 
 
