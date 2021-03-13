@@ -10,7 +10,6 @@ import PrivateRoute from './PrivateRoutes';
 import SignIn from "../views/Auth/SignIn";
 import NotFound from "../views/NotFound";
 import SignUp from "../views/Auth/SignUp";
-import Verify from "../views/Auth/Verify";
 import Profile from "../views/Profile";
 import Landing from "../views/Landing/Landing";
 import Pricing from "../views/Landing/Pricing";
@@ -33,7 +32,8 @@ export default function Routes() {
     }, []);
 
     if (loading) {
-      return (<div className="loading">
+      return (
+        <div className="loading">
               <div className="container">
               loading
               </div>
@@ -44,12 +44,11 @@ export default function Routes() {
           <Switch>
             <PrivateRoute exact path="/" isAuthenticated={status} component={Landing} />
             <PrivateRoute exact path="/profile" isAuthenticated={status} component={Profile} />
-            <PrivateRoute exact path="/pricing" isAuthenticated={status} component={Pricing} />
-            <PrivateRoute exact path="/features" isAuthenticated={status} component={Features} />
-            <PrivateRoute exact path="/checkout" isAuthenticated={status} component={Checkout} />
+            <Route exact path="/pricing"  component={Pricing} />
+            <Route exact path="/features"  component={Features} />
+            <Route exact path="/checkout"  component={Checkout} />
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/register" component={SignUp} />
-            <Route exact path="/verify" component={Verify} />
             <Route component={NotFound} />
           </Switch>
       </Router>
