@@ -1,0 +1,29 @@
+@import '../../../scss/base.scss';
+
+.website-features{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .features{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .column{
+            padding: 10px im !important;
+            margin: 60px;
+        }
+        .feature{
+            width: 400px;
+            .header{ 
+                background-color: azure;
+                border-left: 10px solid $primary-color;
+                padding: 10px;
+                font-family: $font-family;
+            }
+            .description{
+                padding: 10px;
+                font-family: $font-family;
+            }
+        }
+    }
+}
