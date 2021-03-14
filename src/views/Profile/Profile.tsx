@@ -4,6 +4,8 @@ import {  notification, Modal } from 'antd';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import { useHistory, useLocation } from 'react-router-dom';
 
+// FFMPEG
+
 import Animation from "../../assets/annimation/10965-camin.json";
 
 // Components
@@ -14,8 +16,10 @@ import Template from '../Template';
 import './Profile.scss';
 
 
-// Netwoking
+// Networking
 import Server from '../../service/server';
+import VideoSplit from './VideoSplit';
+
 
 const LoadingAnimation = () => {
     const options = {
@@ -35,6 +39,11 @@ type User = {
     avatar: string
 }
 
+type VideoFile = {
+    name: string,
+    size: number
+}
+
 function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
@@ -44,8 +53,10 @@ export default function Profile() {
     const [textSummary, setTextSummary] = React.useState('')
     const [networkLoading, setNetworkLoading] = React.useState(true);
     const [open, setOpen] = React.useState(false);
+    const [openVideoModal, setOpenVideoModal] = React.useState(false)
     const [text, setText] = React.useState('');
-
+    const [video, setVideo] = React.useState<File>();
+    const [videoSRC, setVideoSRC] = React.useState('');
     const history = useHistory();
     const query = useQuery();
 
@@ -72,8 +83,12 @@ export default function Profile() {
     React.useEffect(() => {
         fetchUser();
     },[]);
+
     const openSummarizeModal = (condition: boolean) => {
         setOpen(condition);
+    }
+    const openVideoSplitModal = (condition: boolean) => {
+        setOpenVideoModal(condition);
     }
     const setModalOpen = (condition: boolean, type: "summarize" | "convert-2-audio" | "split-video" | "questions") => {
         switch (type) {
@@ -84,7 +99,7 @@ export default function Profile() {
                 openSummarizeModal(condition);
                 break;
             case 'split-video':
-                openSummarizeModal(condition);
+                openVideoSplitModal(condition);
                 break;
             case 'questions':
                 openSummarizeModal(condition);
@@ -104,7 +119,7 @@ export default function Profile() {
             case 'questions':
                 setModalOpen(true, 'questions');
                 break;
-            case 'split':
+            case 'split-video':
                 setModalOpen(true, 'split-video');
                 break;
             default:
@@ -116,7 +131,10 @@ export default function Profile() {
         console.log('Clicked cancel button');
         setOpen(false);
       };
-    
+    const handleFileChange = (event: any) => {
+        setVideo(event.target.files[0]);
+    }
+
     // Handle submit
     const handleSubmit = async(e: any) => {
         e.preventDefault();
@@ -159,6 +177,13 @@ export default function Profile() {
               setNetworkLoading(false);
         }
     }
+    // Handle video upload
+    const handleSplitVideo = async (e: any) => {
+        e.preventDefault();
+        if(video){
+            history.push('/profile?results=long-video-breaker')
+        }
+    }
     if (networkLoading) {
         return (
             <div className="networkloading">
@@ -187,11 +212,9 @@ export default function Profile() {
             </Template>
         )
     }
-    if (query.get('name') === 'long-video-breaker') {
+    if (query.get('results') === 'long-video-breaker') {
         return (
-            <Template>
-                
-            </Template>
+            <VideoSplit file={video} />
         )
     }
     return (
@@ -229,7 +252,12 @@ export default function Profile() {
                             </div>
                             <div className="actions">
                             <div className="action">
-                                <button className="button">
+                                <button 
+                                    className="button"
+                                    onClick={() => {
+                                        actionActOn('split-video')
+                                    }}
+                                >
                                     Video slice
                                 </button>
                             </div>
@@ -268,6 +296,31 @@ export default function Profile() {
                         </div>
                         <div className="field">
                             <button className="button">Summarize</button>
+                        </div>
+                    </form>
+                </div>
+            </Modal>
+            <Modal 
+                title="Split Large lecture videos" 
+                visible={openVideoModal}
+                onCancel={handleCancel}
+                footer={null}
+                >
+                <div className="modal-content">
+                    <form 
+                        className="form" 
+                        onSubmit={handleSplitVideo}
+                        >
+                        <div className="field">
+                            <input 
+                                type="file" 
+                                name="video" 
+                                className="upload" 
+                                onChange={handleFileChange}
+                                />
+                        </div>
+                        <div className="field">
+                            <button className="button">Split Video</button>
                         </div>
                     </form>
                 </div>

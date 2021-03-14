@@ -17,9 +17,11 @@ export default function TextSummary(props: Props) {
             history.push('/profile');
         }
     },[history, textSummary]);
+
     const downloadText = async () => {
         window.open('data:application/txt,' + encodeURIComponent(textSummary), "_self")
     }
+    
     return (
         <Template>
             <div className="text-summary">
