@@ -1,0 +1,22 @@
+@import '../../../scss/base.scss';
+
+.text-summary{
+	display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    .text{
+        color: #000;
+        font-family: $font-family;
+    }
+    .controls{
+        margin: 10px 0px;
+        margin: 10px 0px;
+        .button:hover{
+            color: #fff !important;
+        }
+    }
+}
