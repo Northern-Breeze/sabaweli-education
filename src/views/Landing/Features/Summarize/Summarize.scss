@@ -1,0 +1,27 @@
+@import '../../../../scss/base.scss';
+
+.container{
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    .card {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 0px;
+    }
+    .header{
+        color: #000;
+        padding: 10px;
+        font-family: $font-family;
+        background-color: azure;
+        border-left: 10px solid $primary-color;
+    }
+    .context{
+        padding: 5px;
+        .content{
+            font-family: $font-family;
+            padding: 10px;
+            color: black;
+        }
+    }
+}

@@ -2,7 +2,12 @@
   "name": "sleepy-bear",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "7.5.4",
+    "node": "15.7.0"
+  },
   "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.9.7",
     "@stripe/react-stripe-js": "^1.4.0",
     "@stripe/stripe-js": "^1.13.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -15,6 +20,7 @@
     "antd": "^4.13.1",
     "axios": "^0.21.1",
     "easy-peasy": "^4.0.1",
+    "lottie-react": "^2.1.0",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

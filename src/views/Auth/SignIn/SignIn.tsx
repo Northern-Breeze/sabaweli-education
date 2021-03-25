@@ -6,7 +6,7 @@ import {  notification } from 'antd';
 import './SignIn.scss';
 
 // Services
-import Server from '../../service/server';
+import Server from '../../../service/server';
 
 interface Account {
     email: string,

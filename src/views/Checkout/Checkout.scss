@@ -1,0 +1,21 @@
+.checkout-container{
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .form-checkout{
+        width: 400px;
+        padding: 5px;
+        .product-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button{
+            border-radius: 0px;
+        }
+    }
+}

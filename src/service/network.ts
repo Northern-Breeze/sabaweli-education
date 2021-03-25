@@ -26,7 +26,6 @@ instance.interceptors.request.use(async config => {
   if (config.url && config.url.charAt(0) === '/') {
     config.url = `${baseURL}${config.url}`;
   }
-  console.log(config.url);
   const token = localStorage.getItem('token') || "";
   config.headers.authorization = `Bearer ${token}`;
 
