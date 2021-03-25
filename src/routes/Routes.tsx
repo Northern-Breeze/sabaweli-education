@@ -42,9 +42,9 @@ export default function Routes() {
     return (
         <Router>
           <Switch>
-            <PrivateRoute exact path="/" isAuthenticated={status} component={Landing} />
             <PrivateRoute exact path="/profile" isAuthenticated={status} component={Profile} />
             <Route exact path="/pricing"  component={Pricing} />
+            <Route exact path="/" component={Landing} />
             <Route exact path="/features"  component={Features} />
             <Route exact path="/checkout"  component={Checkout} />
             <Route exact path="/login" component={SignIn} />
