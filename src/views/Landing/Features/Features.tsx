@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Template from '../../Template';
 
@@ -101,7 +101,7 @@ export default function Features() {
                         <div className="column feature">
                             <header className="header">Video Breaker</header>
                             <p className='description'>
-                               Upload a video of the lecture and the have the system "break" it into smaller tagged videos for easier leaning 
+                               Upload a video of the lecture and the have the system break it into smaller tagged videos for easier leaning 
                             </p>
                             <span 
                                 className="button"
