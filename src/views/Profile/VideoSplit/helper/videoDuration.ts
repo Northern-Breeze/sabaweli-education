@@ -1,6 +1,6 @@
 const loadVideo = (file: File) => new Promise((resolve, reject) => {
     try {
-        let video = document.createElement('video')
+        const video = document.createElement('video')
         video.preload = 'metadata'
 
         video.onloadedmetadata = function () {
