@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL: string = '';
+const baseURL = '';
 
 const instance = axios.create({
   validateStatus: (status: number) => {
@@ -35,7 +35,7 @@ instance.interceptors.request.use(async config => {
 instance.interceptors.request.use(async config => {
     const user = localStorage.getItem('user') || "";
     const baseURL = 'http://localhost:8080/api/v1'
-    let token: string = '';
+    let token = '';
     if(user !== ''){
         const parsed = JSON.parse(user);
         token = parsed.userToken;
