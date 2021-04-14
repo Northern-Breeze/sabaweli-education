@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// eslint-disable jsx-a11y/anchor-is-valid 
 import React from 'react'
 import Logo from '../assets/logo.png';
 import { Link, useHistory } from 'react-router-dom';
