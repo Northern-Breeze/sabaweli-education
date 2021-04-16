@@ -1,5 +1,6 @@
 interface ISummarize {
-    text: string
+    title: string,
+    fullText: string,
 }
 
 export default ISummarize;

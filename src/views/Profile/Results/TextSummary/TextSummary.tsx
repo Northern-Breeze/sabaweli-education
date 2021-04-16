@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useHistory } from 'react-router-dom';
 
-import Template from '../../Template';
+import Template from '../../../Template';
 import './TextSummary.scss';
 
 
@@ -9,7 +9,7 @@ type Props = {
     textSummary: string
 }
 
-export default function TextSummary(props: Props) {
+export default function TextSummary(props: Props): JSX.Element  {
     const { textSummary } = props;
     const history = useHistory();
     React.useEffect(() => {

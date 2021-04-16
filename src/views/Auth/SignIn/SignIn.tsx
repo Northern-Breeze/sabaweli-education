@@ -114,7 +114,7 @@ export default function SignIn() {
                 onClick: () => {
                   console.log('Notification Clicked!');
                 },
-              });;
+              });
         }
     };
     return (
