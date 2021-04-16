@@ -1,0 +1,15 @@
+.bears-modal{
+    .ant-modal-content{
+        border-radius: 10px;
+        max-width: 800px;
+        .ant-modal-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            .form{
+                max-width: 500px;
+            }
+        }
+    }
+}
