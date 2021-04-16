@@ -18,7 +18,7 @@ export default function VideoSlier(props: Props): JSX.Element {
         setOpenVideoModal(false);
     }
     const handleFileChange = (event: React.FormEvent) => {
-        event.preventDefault()
+        event.preventDefault();
     }
     return (
         <Modal 
