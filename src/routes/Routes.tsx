@@ -17,8 +17,9 @@ import Features from "../views/Landing/Features/Features";
 import Checkout from "../views/Checkout";
 
 import checkUser from './helper/checkUser'
+import Results from '../views/Profile/Results';
 
-export default function Routes() {
+export default function Routes(): JSX.Element {
     const [status, setStatus] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
 
@@ -43,6 +44,7 @@ export default function Routes() {
         <Router>
           <Switch>
             <PrivateRoute exact path="/profile" isAuthenticated={status} component={Profile} />
+            <PrivateRoute exact path="/results" isAuthenticated={status} component={Results} />
             <Route exact path="/pricing"  component={Pricing} />
             <Route exact path="/" component={Landing} />
             <Route exact path="/features"  component={Features} />
