@@ -1,24 +1,22 @@
 import React from 'react'
 import { useLottie } from "lottie-react";
-import {  notification, Modal } from 'antd';
+import {  notification } from 'antd';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 // FFMPEG
 
 import Animation from "../../assets/annimation/10965-camin.json";
 
 // Components
-import TextSummary from './TextSummary';
 import Template from '../Template';
-
+import Summarizer from '../../components/Modals/Summarizer';
 // stylesheets
 import './Profile.scss';
 
 
 // Networking
 import Server from '../../service/server';
-import VideoSplit from './VideoSplit';
 
 
 const LoadingAnimation = () => {
@@ -27,9 +25,7 @@ const LoadingAnimation = () => {
       loop: true,
       autoplay: true,
     };
-   
     const { View } = useLottie(options);
-   
     return View;
   };
 
@@ -39,26 +35,10 @@ type User = {
     avatar: string
 }
 
-type VideoFile = {
-    name: string,
-    size: number
-}
-
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
-
-export default function Profile() {
+export default function Profile(): JSX.Element  {
     const [user, setUser] = React.useState<User>();
-    const [textSummary, setTextSummary] = React.useState('')
     const [networkLoading, setNetworkLoading] = React.useState(true);
     const [open, setOpen] = React.useState(false);
-    const [openVideoModal, setOpenVideoModal] = React.useState(false)
-    const [text, setText] = React.useState('');
-    const [video, setVideo] = React.useState<File>();
-    const [videoSRC, setVideoSRC] = React.useState('');
-    const history = useHistory();
-    const query = useQuery();
 
     // Fetch users
     const fetchUser = async () => {
@@ -87,9 +67,7 @@ export default function Profile() {
     const openSummarizeModal = (condition: boolean) => {
         setOpen(condition);
     }
-    const openVideoSplitModal = (condition: boolean) => {
-        setOpenVideoModal(condition);
-    }
+
     const setModalOpen = (condition: boolean, type: "summarize" | "convert-2-audio" | "split-video" | "questions") => {
         switch (type) {
             case 'summarize':
@@ -97,9 +75,6 @@ export default function Profile() {
                 break;
             case 'convert-2-audio':
                 openSummarizeModal(condition);
-                break;
-            case 'split-video':
-                openVideoSplitModal(condition);
                 break;
             case 'questions':
                 openSummarizeModal(condition);
@@ -126,64 +101,9 @@ export default function Profile() {
                 break;
         }
     }
-    // Modal stuff
-    const handleCancel = () => {
-        console.log('Clicked cancel button');
-        setOpen(false);
-      };
-    const handleFileChange = (event: any) => {
-        setVideo(event.target.files[0]);
-    }
 
-    // Handle submit
-    const handleSubmit = async(e: any) => {
-        e.preventDefault();
-        try {
-            setNetworkLoading(true)
-            const response = await Server.summarizeNote({
-                text
-            });
-            if(response.status === 200){
-                setTextSummary(response.data.data)
-                notification.open({
-                    message: 'Success',
-                    description: response.data.message,
-                    onClick: () => {
-                      console.log('Notification Clicked!');
-                    },
-                  });
-                    setOpen(false);
-                    setNetworkLoading(false);
-                    history.push('/profile?results=text-summary');
-            }else{
-                notification.open({
-                    message: 'Error',
-                    description: response.data.message,
-                    onClick: () => {
-                      console.log('Notification Clicked!');
-                    },
-                  });
-                setNetworkLoading(false);
-            }
-        } catch (error) {
-            console.log(error);
-            notification.open({
-                message: 'Crash',
-                description: 'something happened, please try agin later',
-                onClick: () => {
-                  console.log('Notification Clicked!');
-                },
-              });
-              setNetworkLoading(false);
-        }
-    }
+
     // Handle video upload
-    const handleSplitVideo = async (e: any) => {
-        e.preventDefault();
-        if(video){
-            history.push('/profile?results=long-video-breaker')
-        }
-    }
     if (networkLoading) {
         return (
             <div className="networkloading">
@@ -193,30 +113,7 @@ export default function Profile() {
             </div>
         )
     }
-    if (query.get('results') === 'text-summary') {
-        return (
-            <TextSummary textSummary={textSummary} />
-        )
-    }
-    if (query.get('results') === 'audio-to-text') {
-        return (
-            <Template>
-                {textSummary}
-            </Template>
-        )
-    }
-    if (query.get('results') === 'question-generator') {
-        return (
-            <Template>
-                
-            </Template>
-        )
-    }
-    if (query.get('results') === 'long-video-breaker') {
-        return (
-            <VideoSplit file={video} />
-        )
-    }
+
     return (
         <Template>
             <div className="profile-container">
@@ -252,16 +149,6 @@ export default function Profile() {
                             </div>
                             <div className="actions">
                             <div className="action">
-                                <button 
-                                    className="button"
-                                    onClick={() => {
-                                        actionActOn('split-video')
-                                    }}
-                                >
-                                    Video slice
-                                </button>
-                            </div>
-                            <div className="action">
                                 <button
                                     onClick={() => {
                                         actionActOn('summarize')
@@ -276,55 +163,11 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-            <Modal 
-                title="Notes Summarizer" 
-                visible={open}
-                onCancel={handleCancel}
-                footer={null}
-                >
-                <div className="modal-content">
-                    <form 
-                        className="form" 
-                        onSubmit={handleSubmit}
-                        >
-                        <div className="field">
-                            <textarea 
-                                placeholder="Enter Text" 
-                                className="textarea"
-                                onChange={(e) => setText(e.target.value)}
-                            />
-                        </div>
-                        <div className="field">
-                            <button className="button">Summarize</button>
-                        </div>
-                    </form>
-                </div>
-            </Modal>
-            <Modal 
-                title="Split Large lecture videos" 
-                visible={openVideoModal}
-                onCancel={handleCancel}
-                footer={null}
-                >
-                <div className="modal-content">
-                    <form 
-                        className="form" 
-                        onSubmit={handleSplitVideo}
-                        >
-                        <div className="field">
-                            <input 
-                                type="file" 
-                                name="video" 
-                                className="upload" 
-                                onChange={handleFileChange}
-                                />
-                        </div>
-                        <div className="field">
-                            <button className="button">Split Video</button>
-                        </div>
-                    </form>
-                </div>
-            </Modal>
+            <Summarizer 
+                open={open}
+                setOpen={openSummarizeModal}
+                setNetworkLoading={setNetworkLoading}
+            /> 
         </Template>
     )
 }
