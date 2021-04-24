@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 
 const store = createStore(Store);
 
-function App() {
+function App(): JSX.Element {
   return (
     <Provider store={store}>
       <Routes />
