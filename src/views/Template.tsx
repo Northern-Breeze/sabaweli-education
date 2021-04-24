@@ -4,8 +4,11 @@ import Logo from '../assets/logo.png';
 import { Link, useHistory } from 'react-router-dom';
 import './Template.scss';
 
+type Props = {
+    children: React.ReactNode
+}
 
-export default function Template(props: { children: any; }) {
+export default function Template(props: Props): JSX.Element {
     const { children } = props;
     const [isActive, setActive] = React.useState(false);
     const history = useHistory()
@@ -22,7 +25,8 @@ export default function Template(props: { children: any; }) {
                         aria-label="menu" 
                         aria-expanded="false" 
                         data-target="navbarBasicExample"
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
+                            e.preventDefault();
                             setActive(!isActive);
                         }}
                         >
