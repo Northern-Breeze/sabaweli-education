@@ -1,6 +1,6 @@
-import React from 'react'
+import * as  React from 'react';
 
-export default function NotFound() {
+export default function NotFound(): JSX.Element {
     return (
         <div>
             Page Not found

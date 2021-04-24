@@ -18,7 +18,7 @@ interface Account {
     name: string,
 }
 
-export default function SignUp() {
+export default function SignUp(): JSX.Element {
     const {  errors, handleSubmit, register} = useForm<Account>();
     const [loading, setLoading] = React.useState(false);
     const history = useHistory()

@@ -11,7 +11,7 @@ function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
 
-export default function Features() {
+export default function Features(): JSX.Element {
     const history = useHistory();
     const query = useQuery();
     const readMore = (value: string) => {

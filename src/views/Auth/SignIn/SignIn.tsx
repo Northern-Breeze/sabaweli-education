@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {  notification } from 'antd';
@@ -12,10 +12,10 @@ interface Account {
     email: string,
     password: string,
     success: boolean
-    data: any
+    data: { email: string, password: string }
 }
 
-export default function SignIn() {
+export default function SignIn(): JSX.Element {
     const { handleSubmit, register, errors } = useForm<Account>()
     const [loading ,setLoading] = React.useState(false);
 
