@@ -3,13 +3,14 @@ import { useLocation } from 'react-router-dom';
 import TextSummary from './TextSummary';
 
 import './Results.scss'
+import Audio2Notes from './Audio2Notes';
 
-type TextSummary = {
-    textSummary: string
+type DataParams = {
+    data: string
 }
 
 type Location = {
-    state: TextSummary
+    state: DataParams,
 }
 
 function useQuery() {
@@ -22,7 +23,14 @@ export default function Results(): JSX.Element  {
     if(query.get('results') === 'text-summary'){
         return (
             <TextSummary 
-                textSummary={location.state?.textSummary}
+                textSummary={location.state?.data}
+            />
+        )
+    }
+    if(query.get('results') === 'audio-to-text'){
+        return (
+            <Audio2Notes
+                notes={location.state?.data}
             />
         )
     }
