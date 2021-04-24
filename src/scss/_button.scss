@@ -1,0 +1,28 @@
+@import './utilities';
+
+.button {
+    width: 100%;
+    background-color: $white;
+    color: #000;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.button.default {
+    width: 100%;
+    background-color: $white;
+    color: #000;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.button.primary {
+    width: 100%;
+    background-color: $cinnamon-satin;
+    color: #ffffff;
+    font-family: 'Source Code Pro', monospace;
+}
+.button.secondary {
+    width: 100%;
+    background-color: $brink-pink;
+    color: #ffffff;
+    font-family: 'Source Code Pro', monospace;
+}
