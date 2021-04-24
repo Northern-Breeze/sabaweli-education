@@ -21,25 +21,15 @@ import Results from '../views/Profile/Results';
 
 export default function Routes(): JSX.Element {
     const [status, setStatus] = React.useState(false);
-    const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
       const token = localStorage.getItem('token') || "";
       (async () => {
         const status = await checkUser(token);
         setStatus(status)
-        setLoading(false);
       })()
     }, []);
 
-    if (loading) {
-      return (
-        <div className="loading">
-              <div className="container">
-              loading
-              </div>
-        </div>)
-    }
     return (
         <Router>
           <Switch>
