@@ -33,11 +33,14 @@ export default function AudioToNotes(props: Props): JSX.Element {
                 formData.append(
                     'file',
                     file,
-                    file.name
                 )
-                const response = await Server.audioToText({
+                formData.append(
+                    'fileName',
+                    file.name,
+                )
+                const response = await Server.audioToText(
                     formData
-                });
+                );
                 if (response.status === 200) {
                     notification.open({
                         message: 'Success',
