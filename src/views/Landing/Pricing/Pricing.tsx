@@ -6,7 +6,7 @@ import Template from '../../Template';
 import './Pricing.scss';
 
 
-export default function Pricing() {
+export default function Pricing(): JSX.Element {
     const history = useHistory();
     return (
         <Template>

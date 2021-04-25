@@ -2,10 +2,15 @@
 import React from 'react'
 import Logo from '../assets/logo.png';
 import { Link, useHistory } from 'react-router-dom';
+import Button from '../components/Button';
+
 import './Template.scss';
 
+type Props = {
+    children: React.ReactNode
+}
 
-export default function Template(props: { children: any; }) {
+export default function Template(props: Props): JSX.Element {
     const { children } = props;
     const [isActive, setActive] = React.useState(false);
     const history = useHistory()
@@ -22,7 +27,8 @@ export default function Template(props: { children: any; }) {
                         aria-label="menu" 
                         aria-expanded="false" 
                         data-target="navbarBasicExample"
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
+                            e.preventDefault();
                             setActive(!isActive);
                         }}
                         >
@@ -66,26 +72,25 @@ export default function Template(props: { children: any; }) {
                     </div>
 
                     <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div className="buttons">
-                        <button 
-                            className="button"
-                            onClick={() => {
-                                history.push('/login')
-                            }}
-                            >
-                            Sign In                           
-                        </button>
-                        <button 
-                            className="button seconday"
-                            onClick={() => {
-                                history.push('/register')
-                            }}
-                            >
-                            Sign Up
-                        </button>
+                        <div className="navbar-item">
+                            <div className="buttons-container">
+                                <Button 
+                                    onClick={() => {
+                                        history.push('/login')
+                                    }}
+                                    >
+                                    Sign In                           
+                                </Button>
+                                <Button 
+                                    className="secondary"
+                                    onClick={() => {
+                                        history.push('/register')
+                                    }}
+                                    >
+                                    Sign Up
+                                </Button>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 </nav>
