@@ -1,0 +1,41 @@
+@import '../../scss/utilities';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px;
+    border-radius: 20px;
+    .card-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .image {
+            border-radius: 10px 10px 0px 0px;
+            width: 100%;
+            height: 500px;
+        }
+    }
+    .card-header {
+        justify-content: center;
+        align-items: center;
+        box-shadow: none;
+        font-size: 20px;
+        font-family: $font-family;
+        padding: 10px;
+        font-size: 23px;
+    }
+    .card-content {
+        font-family: $font-family;
+    }
+    .card-footer {
+        justify-content: center;
+        align-items: center;
+        box-shadow: none;
+        border-top: none;
+        padding: 10px;
+        .button-container {
+            width: 80%;
+        }
+    }
+}

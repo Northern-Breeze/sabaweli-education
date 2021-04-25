@@ -49,7 +49,7 @@ export default function Summarizer(props: Props): JSX.Element  {
                     });
                     setOpen(false);
                     setNetworkLoading(false);
-                    history.push('/results?results=text-summary', { textSummary: response.data.data });
+                    history.push('/results?results=text-summary', { data: response.data.data });
             }else{
                 notification.open({
                     message: 'Error',

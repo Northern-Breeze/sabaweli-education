@@ -20,7 +20,7 @@ interface FileProperty {
     filetype: string
 }
 
-export default function Home() {
+export default function Home(): JSX.Element {
 	const [selectedFile, setSelectedFile]  = React.useState<File>();
 	const [isFilePicked, setIsFilePicked] = React.useState(false);
     const [erroState, setErrorState]  = React.useState<ErrorState>();
@@ -34,12 +34,11 @@ export default function Home() {
             setFileProperty({ filename: event?.target?.files[0].name, filsize: event.target.files[0].size, filetype: event.target.files[0].type })
         }
     }
-    const onSubmit = async (event: any) => {
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         try {
             if (selectedFile) {
                 const formData = new FormData();
-        
                 formData.append('file', selectedFile);
                 const token = localStorage.getItem('token') || ""
                 const response = await fetch(

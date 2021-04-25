@@ -5,20 +5,23 @@ import ILogin from '../interfaces/Authentication/ILogin';
 import IVerifyToken from '../interfaces/Authentication/IVerifyToken'
 import Itoken from '../interfaces/Authentication/Itoken';
 import ISummarize from '../interfaces/Authentication/ISummarize';
+import { AxiosPromise } from 'axios';
 
 const Server = {
     // login the user
-    loginUser: (data: ILogin) => Axios.post('/auth/login', data),
+    loginUser: (data: ILogin): AxiosPromise => Axios.post('/auth/login', data),
     // register the users
-    registerUser: (data: IRegister) => Axios.post('/auth/register', data),
+    registerUser: (data: IRegister): AxiosPromise => Axios.post('/auth/register', data),
     // Validate verify token
-    validateToken: (data: IVerifyToken) => Axios.post('/auth/verify', data),
+    validateToken: (data: IVerifyToken): AxiosPromise => Axios.post('/auth/verify', data),
     // check token validity
-    verifyUser: (data: Itoken) => Axios.post('/auth/checkuser', data),
+    verifyUser: (data: Itoken): AxiosPromise => Axios.post('/auth/checkuser', data),
     // Get user details
-    getUser: () => Axios.get('/user'),
+    getUser: (): AxiosPromise => Axios.get('/user'),
     // Summarize
-    summarizeNote: (data: ISummarize) => Axios.post('/tools/summarize', data),
+    summarizeNote: (data: ISummarize): AxiosPromise => Axios.post('/tools/summarize', data),
+    // Make notes
+    audioToText: (data: any): AxiosPromise => Axios.post('/upload', data),
 }
 
 export default Server;

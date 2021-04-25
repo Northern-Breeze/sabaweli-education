@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import './Summarize.scss';
 
-export default function Summary() {
+export default function Summary(): JSX.Element {
     const history = useHistory();
     return (
         <div className="container">
