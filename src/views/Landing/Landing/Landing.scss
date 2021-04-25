@@ -1,4 +1,4 @@
-@use '../../../scss/utilities' as variables;
+@import '../../../scss/utilities';
 
 .main-content {
     scroll-behavior: smooth;
@@ -33,6 +33,108 @@
         }
         .button {
             width: 200px;
+        }
+    }
+    .features {
+        .header-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .header {
+                font-size: 30px;
+                font-family: 'Source Code Pro', monospace;
+                border-bottom: 10px solid $brink-pink;
+            }
+        }
+        .features-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+    }
+    .name-component {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .explore-text {
+            font-size: 30px;
+            font-family: 'Source Code Pro', monospace;
+            border-bottom: 10px solid $brink-pink;
+        }
+    }
+    .section-last {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px;
+        .show-image {
+            background: url('../../../assets/landing-image-1.jpg') no-repeat;
+            background-size: contain;
+            width: 1000px;
+            height: 667px;
+            border-radius: 10px;
+        }
+        .show-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+            .sub-hero-text {
+                width: 600px;
+                font-size: 40px;
+                font-weight: 900;
+                font-family: $font-family;
+                padding: 20px;
+            }
+            .button {
+                width: 200px;
+            }
+        }
+    }
+    .contact {
+        padding: 20px;
+        background: $gradient-bottom-right;
+        height: 600px;
+        .get-in-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .get-in-contact-text {
+                font-weight: 400;
+                font-size: 30px;
+                font-family: 'Source Code Pro', monospace;
+                border-bottom: 10px solid $brink-pink;
+                color: #5b3758ff;
+
+            }
+        }
+        .details {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 40px;
+            .contact-us {
+                font-size: 30px;
+                font-family: $font-family;
+                font-weight: 400;
+                color: $dark-byzantium;
+            }
+            .form-container {
+                width: 500px;
+                .input {
+                    border-radius: 0px;
+                    border:1px solid rgb(255, 255, 255);
+                }
+                .textarea {
+                    border-radius: 0px;
+                    border:1px solid rgb(255, 255, 255);
+                }
+            }
         }
     }
 }
