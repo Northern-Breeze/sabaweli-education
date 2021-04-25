@@ -14,7 +14,7 @@ const User: UserModel = {
   email: '',
   token: '',
   isAuth: false,
-  setAuth: action((state, payload) => {
+  setAuth: action((state) => {
       state.isAuth = true;
   }),
   asyncAuth: thunk((action) => {

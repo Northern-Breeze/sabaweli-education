@@ -1,19 +1,32 @@
+@import '../scss/utilities';
+
+$white: #ffffff;
+$melon: #83b692ff;
+$melon: #f9ada0ff;
+$brink-pink: #f9627dff;
+$cinnamon-satin: #c65b7cff;
+$dark-byzantium: #5b3758ff;
+
 .sleepy-warpper{
     height: 80px;
+    background-color: $white;
+    color: $white;
+    .navbar-end {
+        .navbar-item {
+            .buttons-container {
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                .button {
+                    margin: 10px;
+                    width: 150px;
+                }
+            }
+        }
+    }
     .logo{
         padding: 5px;
         width: 36px;
         height: 28px;
-    }
-    .button{
-        border: 1px solid #ffffff;
-        border-radius: 0px;
-        background-color: purple;
-        color: #ffffff;
-        width: 110px;
-    }
-    .seconday{
-        background-color: aqua;
-        color: #ffffff;
     }
 }

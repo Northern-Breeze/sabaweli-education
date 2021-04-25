@@ -6,7 +6,7 @@ interface PrivateRouteProps extends RouteProps {
 }
 
 export class PrivateRoute extends Route<PrivateRouteProps> {
-    render() {
+    render(): JSX.Element {
         return (
             <Route render={(props: RouteComponentProps) => {
                 if(!this.props.isAuthenticated) {

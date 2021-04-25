@@ -1,4 +1,3 @@
-@import '../../../scss/base.scss';
 
 .website-features{
     display: flex;
@@ -16,13 +15,11 @@
             width: 400px;
             .header{ 
                 background-color: azure;
-                border-left: 10px solid $primary-color;
+                border-left: 10px solid #5B3758;
                 padding: 10px;
-                font-family: $font-family;
             }
             .description{
                 padding: 10px;
-                font-family: $font-family;
             }
         }
     }

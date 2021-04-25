@@ -2,6 +2,8 @@
 import React from 'react'
 import Logo from '../assets/logo.png';
 import { Link, useHistory } from 'react-router-dom';
+import Button from '../components/Button';
+
 import './Template.scss';
 
 type Props = {
@@ -70,26 +72,25 @@ export default function Template(props: Props): JSX.Element {
                     </div>
 
                     <div className="navbar-end">
-                    <div className="navbar-item">
-                        <div className="buttons">
-                        <button 
-                            className="button"
-                            onClick={() => {
-                                history.push('/login')
-                            }}
-                            >
-                            Sign In                           
-                        </button>
-                        <button 
-                            className="button seconday"
-                            onClick={() => {
-                                history.push('/register')
-                            }}
-                            >
-                            Sign Up
-                        </button>
+                        <div className="navbar-item">
+                            <div className="buttons-container">
+                                <Button 
+                                    onClick={() => {
+                                        history.push('/login')
+                                    }}
+                                    >
+                                    Sign In                           
+                                </Button>
+                                <Button 
+                                    className="secondary"
+                                    onClick={() => {
+                                        history.push('/register')
+                                    }}
+                                    >
+                                    Sign Up
+                                </Button>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 </nav>
