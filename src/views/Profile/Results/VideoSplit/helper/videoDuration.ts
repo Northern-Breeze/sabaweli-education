@@ -1,4 +1,4 @@
-const loadVideo = (file: File) => new Promise((resolve, reject) => {
+const loadVideo = (file: File): Promise<HTMLVideoElement> => new Promise((resolve, reject) => {
     try {
         const video = document.createElement('video')
         video.preload = 'metadata'
