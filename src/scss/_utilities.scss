@@ -7,7 +7,10 @@
     $dark-byzantium: #5b3758ff;
   
     $font-family: 'Source Code Pro', monospace;
-
+    $media-desktop: "only screen and (max-width : 1024px)";
+    $media-tablet: "only screen and (max-width : 768px)";
+    $media-mobile: "only screen and (max-width : 600px)";
+    $media-mobile-sm: "only screen and (max-width : 480px)";
     /* SCSS Gradient */
     $gradient-top: linear-gradient(
       0deg,

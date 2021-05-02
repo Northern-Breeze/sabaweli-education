@@ -1,16 +1,18 @@
 @import '../scss/utilities';
 
-$white: #ffffff;
-$melon: #83b692ff;
-$melon: #f9ada0ff;
-$brink-pink: #f9627dff;
-$cinnamon-satin: #c65b7cff;
-$dark-byzantium: #5b3758ff;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
 .sleepy-warpper{
     height: 80px;
     background-color: $white;
     color: $white;
+    width: 100%;
     .navbar-end {
         .navbar-item {
             .buttons-container {
