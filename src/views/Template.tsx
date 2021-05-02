@@ -15,7 +15,7 @@ export default function Template(props: Props): JSX.Element {
     const [isActive, setActive] = React.useState(false);
     const history = useHistory()
     return (
-       <div>
+       <div className="wrapper">
             <nav className="navbar sleepy-warpper" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <div className="navbar-item">
