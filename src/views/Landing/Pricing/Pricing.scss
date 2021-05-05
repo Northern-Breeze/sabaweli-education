@@ -1,7 +1,13 @@
+
+@import '../../../scss/utilities';
+
 .pricing-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: $gradient-right;
+    height: 100vh;
+    width: 100%;
     .cards{
         background-color: whitesmoke;
         padding: 10px;
@@ -15,6 +21,7 @@
             align-items: center;
             padding: 10px;
             border-bottom: 0.5px solid #000;
+            font-family: $font-family;
         }
         .price-header > * {
             font-size: 20px;
@@ -26,6 +33,7 @@
             align-items: center;
             padding: 10px;
             font-size: 30px;
+            font-family: $font-family;
         }
         .price-body{
             display: flex;
@@ -33,6 +41,7 @@
             align-items: center;
             padding: 10px;
             font-size: 14px;
+            font-family: $font-family;
         }
         .price-footer{
             display: flex;
@@ -42,6 +51,7 @@
             font-size: 14px;
             font-size: 20px;
             font-weight: bold;
+            font-family: $font-family;
         }
         
     }
