@@ -17,7 +17,7 @@ export default function Landing(): JSX.Element {
         <div className="hero-image">
           <div className="call-to-action">
             <p className="header-description">
-              <span className="title">SleepyBears</span> is a platform for
+              <span className="title">Sabaweli Education</span> is a platform for
               students to get the most out of their studies with tools for
               productivity
             </p>

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { useHistory } from 'react-router-dom';
+import Button from '../../../components/Button';
 
 import Template from '../../Template';
 
@@ -24,8 +25,8 @@ export default function Pricing(): JSX.Element {
                             GET 20 MB
                         </div>
                         <div className="price-buy">
-                            <button 
-                                className="button"
+                            <Button 
+                                className="primary"
                                 onClick={() => {
                                     history.push({
                                         pathname: '/checkout',
@@ -34,7 +35,7 @@ export default function Pricing(): JSX.Element {
                                 }}
                                 >
                                 GET STARTED
-                            </button>
+                            </Button>
                         </div>
                     </div>
                     <div className="cards">
@@ -49,9 +50,9 @@ export default function Pricing(): JSX.Element {
                                 GET 30 MB
                             </div>
                             <div className="price-buy">
-                                <button className="button">
+                                <Button className="primary">
                                     GET STARTED
-                                </button>
+                                </Button>
                             </div>
                     </div>
                     <div className="cards">
@@ -66,9 +67,9 @@ export default function Pricing(): JSX.Element {
                                 GET 80 MB
                             </div>
                             <div className="price-buy">
-                                <button className="button">
+                                <Button className="primary">
                                     GET STARTED
-                                </button>
+                                </Button>
                             </div>
                     </div>
                 </div>
