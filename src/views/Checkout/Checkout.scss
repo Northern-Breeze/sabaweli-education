@@ -1,18 +1,23 @@
 @import '../../scss//utilities';
 
 .checkout-container{
-    background-color: #f6f9fc;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #f6f9fc;
+    height: 100vh;
+    display: flex;
     .form-checkout{
+        align-items: center;
         width: 400px;
         padding: 10px;
         border-radius: 10px;
         box-shadow: 1px 1px 4px 1px #b9c3ce;
         background-color: #fff;
+        .StripeElement {
+            padding: 10px;
+        }
         .product-info{
             display: flex;
             flex-direction: column;
