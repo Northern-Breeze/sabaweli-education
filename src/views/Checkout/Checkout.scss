@@ -1,5 +1,7 @@
+@import '../../scss//utilities';
+
 .checkout-container{
-    background-color: #fff;
+    background-color: #f6f9fc;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -7,15 +9,26 @@
     align-items: center;
     .form-checkout{
         width: 400px;
-        padding: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 4px 1px #b9c3ce;
+        background-color: #fff;
         .product-info{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            .product-title{
+                font-size: 20px;
+                font-family: $font-family;
+            }
+            .product-price {
+                font-size: 17px;
+                font-family: $font-family;
+            }
         }
         .button{
-            border-radius: 0px;
+            border-radius: 10px;
         }
     }
 }
