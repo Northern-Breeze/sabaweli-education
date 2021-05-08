@@ -84,7 +84,7 @@ export default function Features(): JSX.Element {
               <Button
                 className="primary"
                 onClick={() => {
-                  readMore("audio-to-tex");
+                  history.push('/profile');
                 }}
               >
                 Start Now
@@ -100,7 +100,7 @@ export default function Features(): JSX.Element {
               <Button
                 className="primary"
                 onClick={() => {
-                  readMore("audio-to-tex");
+                  history.push('/profile');
                 }}
               >
                 Sart Now
@@ -116,7 +116,7 @@ export default function Features(): JSX.Element {
               <Button
                 className="primary"
                 onClick={() => {
-                  readMore("audio-to-tex");
+                  history.push('/profile');
                 }}
               >
                 Start Now

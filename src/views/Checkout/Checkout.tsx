@@ -50,7 +50,7 @@ export default function Checkout(): JSX.Element {
           </div>
         </div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm />
+          <CheckoutForm title={title} amount={price} />
         </Elements>
       </div>
     </div>

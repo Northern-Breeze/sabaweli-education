@@ -1,11 +1,7 @@
 {
-  "name": "sleepy-bear",
-  "version": "0.1.0",
+  "name": "sabaweli-education",
+  "version": "1.0.0",
   "private": true,
-  "engines": {
-    "npm": "7.5.4",
-    "node": "15.7.0"
-  },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.9.7",
     "@stripe/react-stripe-js": "^1.4.0",

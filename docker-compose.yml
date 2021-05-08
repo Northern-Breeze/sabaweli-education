@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  sabaweli-prod:
+    container_name: sabaweli-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '1337:80'
