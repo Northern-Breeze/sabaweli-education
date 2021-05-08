@@ -8,7 +8,7 @@ SleepyBears is a platform for students to get the most out of their studies with
 
 
 ## Production
-
+### AWS
 
 # TODO
 [ ] Remove all console.log in production
