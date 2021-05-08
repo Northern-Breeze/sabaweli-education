@@ -1,15 +1,10 @@
 version: '3.7'
 
 services:
-  sabaweli:
-    container_name: sabaweli-dev
+  sabaweli-prod:
+    container_name: sabaweli-prod
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - '.:/app'
-      - '/app/node_modules'
     ports:
-      - 3001:3000
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+      - '1337:80'
