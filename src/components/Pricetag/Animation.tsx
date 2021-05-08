@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { useLottie } from "lottie-react";
 
 import animation from '../../assets/annimation/price-tag.json';
