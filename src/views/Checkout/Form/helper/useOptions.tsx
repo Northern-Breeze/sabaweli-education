@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import useResponsiveFontSize from './useResponsiveFonts';
-import {  } from '@stripe/react-stripe-js'
+
 const useOptions = (): any => {
     const fontSize = useResponsiveFontSize();
     const options = useMemo(

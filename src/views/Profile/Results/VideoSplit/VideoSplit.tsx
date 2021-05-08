@@ -11,7 +11,7 @@ type Props = {
 
 const ffmpeg = createFFmpeg({ log: process.env.NODE_ENV !== 'production'});
 
-export default function VideoSplit(props: Props) {
+export default function VideoSplit(props: Props): JSX.Element {
         const { file } = props;
         const [videos, setVideoArray] = React.useState([]);
         const history = useHistory();
