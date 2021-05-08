@@ -1,0 +1,13 @@
+.networkloading{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #eff3f6;
+    .animation {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
