@@ -10,7 +10,7 @@ interface FileSize {
     fileSize: Size
 }
 
-export default function fileSize(props: FileSize) {
+export default function fileSize(props: FileSize): JSX.Element {
     const { fileSize } = props;
     const size = (fileSize?.filsize / 1000000)
     return (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { notification, Modal } from 'antd';
+import {  Modal } from 'antd';
 
 import './VideoSlice.scss';
 
