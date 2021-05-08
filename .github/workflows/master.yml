@@ -15,7 +15,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
-      - run: unset CI
+      - run: CI= yarn build
       - run: yarn
       - run: yarn build
       - run: yarn test
