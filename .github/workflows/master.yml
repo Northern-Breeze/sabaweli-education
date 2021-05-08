@@ -1,4 +1,4 @@
-name: React CI
+name: React CI-CD
 
 on:
   push:
@@ -15,6 +15,7 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
+      - unset CI
       - run: yarn
       - run: yarn build
       - run: yarn test
