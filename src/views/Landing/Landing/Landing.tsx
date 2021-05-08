@@ -1,21 +1,23 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
 import Template from "../../Template";
 import Button from "../../../components/Button";
 
 import Feature from "../../../components/Feature";
+import Footer from "../../../components/Footer";
+import HomeAnimation from '../../../components/HomeAnimation';
+import LearnMore from "../../../components/LearnMore";
 
 import "./Landing.scss";
 
+
 export default function Landing(): JSX.Element {
-  const history = useHistory();
   return (
     <Template>
       <main className="main-content">
         <div className="hero-image">
           <div className="call-to-action">
             <p className="header-description">
-              <span className="title">SleepyBears</span> is a platform for
+              <span className="title">Sabaweli Education</span> is a platform for
               students to get the most out of their studies with tools for
               productivity
             </p>
@@ -51,6 +53,7 @@ export default function Landing(): JSX.Element {
         </div>
         <div className="section-last">
           <div className="show-image">
+            <LearnMore />
           </div>
           <div className="show-text">
             <div className="sub-hero-text">
@@ -69,7 +72,7 @@ export default function Landing(): JSX.Element {
             </div>
             <div className="details">
               <div className="contact-us">
-                Contact Us
+                <HomeAnimation />
               </div>
               <div className="form-container">
                   <form>
@@ -94,6 +97,7 @@ export default function Landing(): JSX.Element {
               </div>
             </div>
         </div>
+        <Footer />
       </main>
     </Template>
   );

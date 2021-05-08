@@ -1,26 +1,32 @@
+@import "../../../scss/utilities";
 
-.website-features{
-    display: flex;
+.website-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $gradient-right;
+  height: 100vh;
+  width: 100%;
+  .features {
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    .features{
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .column{
-            padding: 10px im !important;
-            margin: 60px;
-        }
-        .feature{
-            width: 400px;
-            .header{ 
-                background-color: azure;
-                border-left: 10px solid #5B3758;
-                padding: 10px;
-            }
-            .description{
-                padding: 10px;
-            }
-        }
+    .column {
+      margin: 10px;
     }
+    .feature {
+      width: 400px;
+      border-radius: 10px;
+      background: #fff;
+      .header {
+        background-color: azure;
+        border-left: 10px solid #5b3758;
+        padding: 10px;
+      }
+      .description {
+        padding: 10px;
+        font-family: "Source Code Pro", monospace;
+      }
+    }
+  }
 }
