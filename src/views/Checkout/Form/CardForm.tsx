@@ -1,7 +1,9 @@
 import * as React from "react";
+import { useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Notification from "antd/es/notification";
 import Button from "../../../components/Button";
+
 import useOptions from "./helper/useOptions";
 import useUser from "../../../hooks/useUser";
 import Server from "../../../service/server";
@@ -11,6 +13,7 @@ const CheckoutForm = (): JSX.Element => {
   const elements = useElements();
   const options = useOptions();
   const { username } = useUser();
+  const history = useHistory();
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -45,7 +48,14 @@ const CheckoutForm = (): JSX.Element => {
         })
           .then((response) => {
             if (response.status === 200) {
-              console.log(response)
+              if(response.data.success){
+                history.push('/checkout?payment-status=success');
+              } else {
+                Notification.open({
+                  type: 'error',
+                  message: response.data.message
+                })
+              }
             } else {
               Notification.open({
                 type: "error",
@@ -53,8 +63,12 @@ const CheckoutForm = (): JSX.Element => {
               });
             }
           })
-          .catch((error) => {
-            console.log(error)
+          .catch((error: string) => {
+            console.log(error);
+            Notification.open({
+              type: 'error',
+              message: 'Something went wrong, please try again later'
+            })
           });
       }
     }

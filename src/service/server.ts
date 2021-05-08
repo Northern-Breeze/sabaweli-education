@@ -5,6 +5,8 @@ import ILogin from '../interfaces/Authentication/ILogin';
 import IVerifyToken from '../interfaces/Authentication/IVerifyToken'
 import Itoken from '../interfaces/Authentication/Itoken';
 import ISummarize from '../interfaces/Authentication/ISummarize';
+import IData from '../interfaces/Checkout/IData-interface';
+
 import { AxiosPromise } from 'axios';
 
 const Server = {
@@ -22,6 +24,8 @@ const Server = {
     summarizeNote: (data: ISummarize): AxiosPromise => Axios.post('/tools/summarize', data),
     // Make notes
     audioToText: (data: any): AxiosPromise => Axios.post('/upload', data),
+    // Checkout
+    checkData: (data: IData): AxiosPromise => Axios.post('/checkout/stripe/charge', data),
 }
 
 export default Server;
