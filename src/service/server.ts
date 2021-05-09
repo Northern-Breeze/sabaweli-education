@@ -23,6 +23,7 @@ const Server = {
     // Summarize
     summarizeNote: (data: ISummarize): AxiosPromise => Axios.post('/tools/summarize', data),
     // Make notes
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     audioToText: (data: any): AxiosPromise => Axios.post('/upload', data),
     // Checkout
     checkData: (data: IData): AxiosPromise => Axios.post('/checkout/stripe/charge', data),

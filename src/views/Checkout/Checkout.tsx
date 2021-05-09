@@ -3,11 +3,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./Form/CardForm";
 import { useLocation } from "react-router-dom";
-import Loading from '../../components/Loading';
+
 
 import PaymentSuccess from './Steps/PaymentSuccess';
 import "./Checkout.scss";
-import useQuery from '../../utils/useQuery';
 
 interface LocationState {
   from: {
@@ -34,7 +33,7 @@ export default function Checkout(): JSX.Element {
     setName(state?.name);
   }, [location]);
 
-  if (useQuery(location.search, 'payment-status') === 'success') {
+  if (new URLSearchParams(location.search).get('payment-status') === 'success') {
     return <PaymentSuccess />
   }
 
