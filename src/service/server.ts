@@ -28,6 +28,7 @@ const Server = {
     audioToText: (data: any): AxiosPromise => Axios.post('/upload', data),
     // Checkout
     checkData: (data: IData): AxiosPromise => Axios.post('/checkout/stripe/charge', data),
+    paypalCheck: (data: { orderID: string }): AxiosPromise => Axios.post('/checkout/paypal/checkout', data),
     // payfast signature
     payfastSignature: (data: ISignature): AxiosPromise => Axios.post('/checkout/payfast/signature', data),
 }

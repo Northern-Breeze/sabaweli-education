@@ -5,6 +5,7 @@ import { Header } from './Header';
 import './page.css';
 
 export interface PageProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user?: any;
   onLogin(): void;
   onLogout(): void;

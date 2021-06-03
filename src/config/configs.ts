@@ -4,7 +4,9 @@ const devConfig = {
     PAYFAST_CANCEL_URL: 'https://f1073e10185b.ngrok.io/checkout?payment-status=payment-canceled',
     MERCHANT_KEY: 'q1cd2rdny4a53',
     MERCHANT_ID: '10004002',
-    PASSPHRASE: 'payfast'
+    PASSPHRASE: 'payfast',
+    PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID || "",
+    PAYPAL_SECRET_KEY: process.env.REACT_APP_PAYPAL_SECRETE_KEY || ""
 };
 
 const prodConfigs = {
@@ -13,7 +15,9 @@ const prodConfigs = {
     PAYFAST_CANCEL_URL: 'https://sabaweli.netlify.app/checkout?payment-status=payment-canceled',
     MERCHANT_KEY: process.env.REACT_APP_MERCHANT_KEY || "",
     MERCHANT_ID: process.env.REACT_APP_MERCHANT_ID || "",
-    PASSPHRASE: process.env.PASSPHRASE
+    PASSPHRASE: process.env.PASSPHRASE,
+    PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID_PROD || "",
+    PAYPAL_SECRET_KEY: process.env.REACT_APP_PAYPAL_SECRETE_KEY_PROD || ""
 }
 
 export const config = process.env.NODE_ENV === 'development' ? devConfig : prodConfigs

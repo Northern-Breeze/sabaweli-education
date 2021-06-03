@@ -5,6 +5,7 @@ import useUser from '../../hooks/useUser';
 import './PaymentMethods.scss';
 import StripeMethod from './PaymentMethods/Stripe';
 import Payfast from "./PaymentMethods/Payfast/Payfast";
+import Paypal from "./PaymentMethods/Paypal";
 
 const {TabPane} = Tabs;
 
@@ -16,7 +17,7 @@ export default function PaymentMethod(): JSX.Element {
     <div className="payment-option-container">
         <Tabs defaultActiveKey="1" centered>
             <TabPane tab="PayPal" key="1">
-                PayPal
+                <Paypal />
             </TabPane>
             <TabPane tab="Stripe" key="2">
                <StripeMethod />
