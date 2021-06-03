@@ -22,9 +22,14 @@ export default function Routes(): JSX.Element {
   React.useEffect(() => {
     const token = localStorage.getItem("token") || "";
     (async () => {
-      const status = await checkUser(token);
-      setStatus(status);
-      setLoading(false);
+      try {
+        const status = await checkUser(token);
+        setStatus(status);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
     })();
   }, []);
 

@@ -2,11 +2,11 @@ import * as React from "react";
 import { useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Notification from "antd/es/notification";
-import Button from "../../../components/Button";
+import Button from "../../../../components/Button";
 
 import useOptions from "./helper/useOptions";
-import useUser from "../../../hooks/useUser";
-import Server from "../../../service/server";
+import useUser from "../../../../hooks/useUser";
+import Server from "../../../../service/server";
 
 type Props = {
   amount: number;
