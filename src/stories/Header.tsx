@@ -5,7 +5,7 @@ import { Button } from './Button';
 import './header.css';
 
 export interface HeaderProps {
-  user?: {};
+  user?: any;
   onLogin: () => void;
   onLogout: () => void;
   onCreateAccount: () => void;
