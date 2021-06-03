@@ -5,6 +5,7 @@ import { Button } from './Button';
 import './header.css';
 
 export interface HeaderProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user?: any;
   onLogin: () => void;
   onLogout: () => void;
