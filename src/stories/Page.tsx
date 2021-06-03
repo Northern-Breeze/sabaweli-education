@@ -1,13 +1,14 @@
-import React from 'react';
-
+/* eslint-disable react/prop-types */
+import * as React from 'react';
+import PropTypes from 'prop-types';
 import { Header } from './Header';
 import './page.css';
 
 export interface PageProps {
-  user?: {};
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
+  user?: any;
+  onLogin(): void;
+  onLogout(): void;
+  onCreateAccount():  void;
 }
 
 export const Page: React.FC<PageProps> = ({ user, onLogin, onLogout, onCreateAccount }) => (
@@ -31,7 +32,7 @@ export const Page: React.FC<PageProps> = ({ user, onLogin, onLogout, onCreateAcc
       <ul>
         <li>
           Use a higher-level connected component. Storybook helps you compose such data from the
-          "args" of child component stories
+          args of child component stories
         </li>
         <li>
           Assemble data in the page component from your services. You can mock these services out
@@ -65,3 +66,7 @@ export const Page: React.FC<PageProps> = ({ user, onLogin, onLogout, onCreateAcc
     </section>
   </article>
 );
+
+Page.propTypes = {
+  user: PropTypes.object,
+} 

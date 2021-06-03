@@ -6,6 +6,7 @@ import IVerifyToken from '../interfaces/Authentication/IVerifyToken'
 import Itoken from '../interfaces/Authentication/Itoken';
 import ISummarize from '../interfaces/Authentication/ISummarize';
 import IData from '../interfaces/Checkout/IData-interface';
+import ISignature from '../interfaces/Checkout/ISignature-interface';
 
 import { AxiosPromise } from 'axios';
 
@@ -27,6 +28,8 @@ const Server = {
     audioToText: (data: any): AxiosPromise => Axios.post('/upload', data),
     // Checkout
     checkData: (data: IData): AxiosPromise => Axios.post('/checkout/stripe/charge', data),
+    // payfast signature
+    payfastSignature: (data: ISignature): AxiosPromise => Axios.post('/checkout/payfast/signature', data),
 }
 
 export default Server;
