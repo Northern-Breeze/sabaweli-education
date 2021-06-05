@@ -50,9 +50,9 @@ export default function Paypal(): JSX.Element {
         </div>
         <PayPalButton
           amount={price}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onApprove={async (data: any, actions: any) => {
-            const order = await actions.order.capture()
-            console.log(data, actions, order);
+            await actions.order.capture()
           }}
           onSuccess={async (data: { id: string }) => {
             try {

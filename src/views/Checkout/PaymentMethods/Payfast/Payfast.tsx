@@ -24,7 +24,7 @@ export default function Payfast(props: {
   const [price, setPrice] = React.useState(0);
   const [title, setTitle] = React.useState("");
   const [name, setName] = React.useState("");
-  const [signature, setSignature] = React.useState("");
+  const [, setSignature] = React.useState("");
   const mounted = React.useRef<boolean>(true);
 
   const location = useLocation<LocationState>();
