@@ -14,33 +14,6 @@ function useQuery() {
 export default function Features(): JSX.Element {
   const history = useHistory();
   const query = useQuery();
-  const readMore = (value: string) => {
-    switch (value) {
-      case "notes-summarizer": {
-        const toValue = value;
-        history.push(`/features?name=${toValue}`);
-        break;
-      }
-      case "audio-to-text": {
-        const toValue = value;
-        history.push(`/features?name=${toValue}`);
-        break;
-      }
-      case "question-generator": {
-        const toValue = value;
-        history.push(`/features?name=${toValue}`);
-        break;
-      }
-      case "long-video-breaker": {
-        const toValue = value;
-        history.push(`/features?name=${toValue}`);
-        break;
-      }
-      default:
-        break;
-    }
-  };
-
   if (query.get("name") === "notes-summarizer") {
     return (
       <Template>
@@ -84,7 +57,7 @@ export default function Features(): JSX.Element {
               <Button
                 className="primary"
                 onClick={() => {
-                  readMore("audio-to-tex");
+                  history.push('/profile');
                 }}
               >
                 Start Now
@@ -100,7 +73,7 @@ export default function Features(): JSX.Element {
               <Button
                 className="primary"
                 onClick={() => {
-                  readMore("audio-to-tex");
+                  history.push('/profile');
                 }}
               >
                 Sart Now
@@ -116,7 +89,7 @@ export default function Features(): JSX.Element {
               <Button
                 className="primary"
                 onClick={() => {
-                  readMore("audio-to-tex");
+                  history.push('/profile');
                 }}
               >
                 Start Now

@@ -10,7 +10,7 @@ interface Props {
     fileType: File 
 }
 
-export default function FileType(props: Props) {
+export default function FileType(props: Props): JSX.Element {
     const { fileType } = props;
     const type = fileType.filetype.split('/')
     return (

@@ -2,13 +2,19 @@ import * as React from "react";
 import { useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Notification from "antd/es/notification";
-import Button from "../../../components/Button";
+import Button from "../../../../components/Button";
 
 import useOptions from "./helper/useOptions";
-import useUser from "../../../hooks/useUser";
-import Server from "../../../service/server";
+import useUser from "../../../../hooks/useUser";
+import Server from "../../../../service/server";
 
-const CheckoutForm = (): JSX.Element => {
+type Props = {
+  amount: number;
+  title: string;
+}
+
+const CheckoutForm = (props: Props): JSX.Element => {
+  const { amount, title } = props;
   const stripe = useStripe();
   const elements = useElements();
   const options = useOptions();
@@ -35,16 +41,10 @@ const CheckoutForm = (): JSX.Element => {
           },
         });
       } else {
-        Notification.open({
-          message: "Success",
-          description: "Payment processed successfully, waiting on server",
-          onClick: () => {
-            console.log("Notification Clicked!");
-          },
-        });
         Server.checkData({
           stripeToken: paymentMethod,
-          amount: 2,
+          amount: amount,
+          title: title,
         })
           .then((response) => {
             if (response.status === 200) {

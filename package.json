@@ -1,11 +1,7 @@
 {
-  "name": "sleepy-bear",
-  "version": "0.1.0",
+  "name": "sabaweli-education",
+  "version": "1.0.0",
   "private": true,
-  "engines": {
-    "npm": "7.5.4",
-    "node": "15.7.0"
-  },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.9.7",
     "@stripe/react-stripe-js": "^1.4.0",
@@ -27,6 +23,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.1",
+    "react-paypal-button-v2": "^2.6.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "styled-components": "^5.2.1",
@@ -36,14 +33,26 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "echo '...'",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "lint": "eslint src/",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "resolutions": {
@@ -62,8 +71,15 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
     "@types/axios": "^0.14.0",
     "@types/react-alert": "^5.2.0",
+    "@types/react-helmet": "^6.1.1",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-stripe-elements": "^6.0.4",
     "@types/styled-components": "^5.1.7",

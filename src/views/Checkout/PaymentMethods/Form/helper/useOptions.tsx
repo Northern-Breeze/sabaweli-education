@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import useResponsiveFontSize from './useResponsiveFonts';
-import {  } from '@stripe/react-stripe-js'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const useOptions = (): any => {
     const fontSize = useResponsiveFontSize();
     const options = useMemo(

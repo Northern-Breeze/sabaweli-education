@@ -1,6 +1,7 @@
 import { useLottie } from "lottie-react";
 
 interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fileObject: any;
 }
 

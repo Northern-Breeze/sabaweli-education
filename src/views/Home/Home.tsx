@@ -23,7 +23,7 @@ interface FileProperty {
 export default function Home(): JSX.Element {
 	const [selectedFile, setSelectedFile]  = React.useState<File>();
 	const [isFilePicked, setIsFilePicked] = React.useState(false);
-    const [erroState, setErrorState]  = React.useState<ErrorState>();
+    const [, setErrorState]  = React.useState<ErrorState>();
 
     const [fileProperty, setFileProperty] = React.useState<FileProperty>()
 

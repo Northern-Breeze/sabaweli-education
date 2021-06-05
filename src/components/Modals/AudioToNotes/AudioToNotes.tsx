@@ -1,6 +1,9 @@
 import * as React from 'react'
-import { Modal, notification } from 'antd';
+import Modal from 'antd/es/modal';
+import Notification from 'antd/es/notification';
 import { useHistory } from 'react-router-dom';
+
+import './AudioToNotes.scss';
 
 type Props = {
     openAudioModal: boolean,
@@ -10,6 +13,7 @@ type Props = {
 
 
 import Server from '../../../service/server';
+import Button from '../../Button';
 
 export default function AudioToNotes(props: Props): JSX.Element {
     const { openAudioModal, setAudioConvModal, setNetworkLoading } = props;
@@ -42,7 +46,7 @@ export default function AudioToNotes(props: Props): JSX.Element {
                     formData
                 );
                 if (response.status === 200) {
-                    notification.open({
+                    Notification.open({
                         message: 'Success',
                         description: response.data.message,
                         onClick: () => {
@@ -53,7 +57,7 @@ export default function AudioToNotes(props: Props): JSX.Element {
                         setNetworkLoading(false);
                         history.push('/results?results=audio-to-text', { data: response.data.data });
                 } else {
-                    notification.open({
+                    Notification.open({
                         message: 'Error',
                         description: response.data.message,
                         onClick: () => {
@@ -65,7 +69,7 @@ export default function AudioToNotes(props: Props): JSX.Element {
             }
         } catch (error) {
             console.log(error);
-            notification.open({
+            Notification.open({
                 type: 'error',
                 message: 'Something went wrong'
             })
@@ -92,7 +96,7 @@ export default function AudioToNotes(props: Props): JSX.Element {
                       />
               </div>
               <div className="field">
-                  <button className="button" type="submit">Make Notes</button>
+                  <Button className="primary" type="submit">Make Notes</Button>
               </div>
           </form>
       </div>
