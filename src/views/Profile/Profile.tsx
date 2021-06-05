@@ -6,7 +6,7 @@ import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import Animation from "../../assets/annimation/10965-camin.json";
 
 // Components
-import Template from '../Template';
+import Template from '../TemplateWrapper';
 import Summarizer from '../../components/Modals/Summarizer';
 // stylesheets
 import './Profile.scss';
@@ -134,55 +134,9 @@ export default function Profile(): JSX.Element  {
                                 <span>{user?.email}</span>
                             </div>
                         </div>
-                        <div className="actions-container">
-                            <div className="actions">
-                                <div className="action">
-                                    <button 
-                                        onClick={() => {
-                                            actionActOn('convert');
-                                        }}
-                                        className="button"
-                                        >
-                                        Audio to Notes
-                                    </button>
-                                </div>
-                                <div className="action">
-                                    <button 
-                                        onClick={() => {
-                                            actionActOn('convert-2-audio');
-                                        }}
-                                        className="button"
-                                        >
-                                        Generate Question
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="actions">
-                            <div className="action">
-                                <button
-                                    onClick={() => {
-                                        actionActOn('summarize')
-                                    }}
-                                    className="button"
-                                    >
-                                    Notes Summarizer
-                                </button>
-                            </div>
-                        </div>
-                        </div>
                     </div>
                 </div>
             </div>
-            <Summarizer 
-                open={open}
-                setOpen={openSummarizeModal}
-                setNetworkLoading={setNetworkLoading}
-            />
-            <AudioToNotes
-                openAudioModal={openAudioModal}
-                setAudioConvModal={setAudioConvModal}
-                setNetworkLoading={setNetworkLoading}
-            />
         </Template>
     )
 }
