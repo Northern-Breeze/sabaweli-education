@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useHistory } from 'react-router-dom';
 
-import Template from '../../../Template';
+import Template from '../../../TemplateWrapper';
 import './TextSummary.scss';
 
 

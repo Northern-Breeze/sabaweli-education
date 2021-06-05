@@ -11,14 +11,14 @@ type Animation = {
 type Props = {
   onClick(): void;
   children: React.ReactChild;
-  type: "button";
   className: "primary" | "secondary" | "default";
   animation: Animation;
   disabled: boolean;
+  type: 'submit' | 'reset' | 'button'
 };
 
 export default function Button(props: Props): JSX.Element {
-  const { children, onClick, className, animation, disabled } = props;
+  const { children, onClick, className, animation, disabled, type } = props;
   const [scale, setScale] = React.useState(1.0);
 
   const isRendered = React.useRef(false);
@@ -42,6 +42,7 @@ export default function Button(props: Props): JSX.Element {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       disabled={disabled}
+      type={type}
       animate={{
         scale: animation.scaleUp ? scale : 1,
       }}
