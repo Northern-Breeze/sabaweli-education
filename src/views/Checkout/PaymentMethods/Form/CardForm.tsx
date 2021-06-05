@@ -45,6 +45,8 @@ const CheckoutForm = (props: Props): JSX.Element => {
           stripeToken: paymentMethod,
           amount: amount,
           title: title,
+          paymentType: 'stripe',
+          currency: 'usd'
         })
           .then((response) => {
             if (response.status === 200) {
@@ -77,7 +79,7 @@ const CheckoutForm = (props: Props): JSX.Element => {
   return (
     <form onSubmit={handleSubmit}>
       <CardElement options={options} />
-      <Button disabled={!stripe} className="primary">
+      <Button disabled={!stripe} className="primary" type="submit">
         Pay
       </Button>
     </form>
