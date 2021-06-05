@@ -2,6 +2,8 @@
     "python.linting.enabled": true,
     "python.pythonPath": "/usr/bin/python3",
     "cSpell.words": [
-        "Sabaweli"
+        "Sabaweli",
+        "Sider",
+        "antd"
     ]
 }

@@ -15,6 +15,7 @@ import Checkout from "../views/Checkout";
 import checkUser from "./helper/checkUser";
 import Results from "../views/Profile/Results";
 import Loading from "../components/Loading";
+import Audio2Notes from "../views/Profile/Audio2Notes";
 
 export default function Routes(): JSX.Element {
   const [status, setStatus] = React.useState(false);
@@ -45,6 +46,12 @@ export default function Routes(): JSX.Element {
           path="/profile"
           isAuthenticated={status}
           component={Profile}
+        />
+        <PrivateRoute
+          exact
+          path="/profile/audio-2-notes"
+          isAuthenticated={status}
+          component={Audio2Notes}
         />
         <PrivateRoute
           exact
