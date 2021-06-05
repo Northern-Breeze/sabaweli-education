@@ -7,7 +7,7 @@ import PaymentMethods from "./PaymentMethod";
 
 export default function Checkout(): JSX.Element {
   
-  if (new URLSearchParams(location.search).get('payment-status') === 'payment-success') {
+  if (new URLSearchParams(location.search).get('payment-status') === 'success') {
     return <PaymentSuccess />
   }
 
