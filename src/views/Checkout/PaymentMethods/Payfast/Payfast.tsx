@@ -103,13 +103,6 @@ export default function Payfast(props: {
             name="merchant_key"
             value={config["MERCHANT_KEY"]}
           />
-          <input type="hidden" name="amount" value={price} />
-          <input type="hidden" name="item_name" value={name} />
-          <input
-            type="hidden"
-            name="email_address"
-            value="samuelmthwa79@gmail.com"
-          />
           <input
             type="hidden"
             name="return_url"
@@ -120,17 +113,18 @@ export default function Payfast(props: {
             name="cancel_url"
             value={config["PAYFAST_CANCEL_URL"]}
           />
+          <input type="hidden" name="amount" value={price} />
+          <input type="hidden" name="item_name" value={name} />
           <input type="hidden" name="email_confirmation" value="1" />
           <input
             type="hidden"
             name="confirmation_address"
             value="samuelmthwa79@gmail.com"
           />
-          <input type="hidden" name="signature" value={signature} />
           <button
             type="submit"
             className="button primary"
-            disabled={!signature}
+            disabled={true}
           >
             Pay Now
           </button>
