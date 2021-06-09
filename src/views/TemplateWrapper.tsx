@@ -23,10 +23,25 @@ type Props = {
 export default function TemplateWrapper(props: Props): JSX.Element {
   const { children } = props;
   const [collapsed, setCollapsed] = React.useState(false);
+  const [isOnline, setOnline] = React.useState(true);
+
   const history = useHistory();
   const toggleNav = () => {
     setCollapsed(!collapsed);
   };
+
+  window.addEventListener("online", () => {
+    setOnline(true);
+  });
+  window.addEventListener("offline", () => {
+    setOnline(false);
+  });
+  React.useEffect(() => {
+    setOnline(navigator.onLine);
+  }, []);
+  if(!isOnline){
+    return <div className="offline-container"><span>Your offline, no internet connection</span></div>
+  }
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -69,10 +84,10 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             key="7"
             icon={<QuestionOutlined />}
             onClick={() => {
-              history.push('/profile/questions-simulator')
+              history.push("/profile/questions-simulator");
             }}
           >
-           Question simulator
+            Question simulator
           </Menu.Item>
           <Menu.Item
             key="5"
@@ -111,7 +126,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             margin: "24px 16px",
             padding: 24,
             minHeight: "100vh",
-            overflowY: 'scroll'
+            overflowY: "scroll",
           }}
         >
           {children}

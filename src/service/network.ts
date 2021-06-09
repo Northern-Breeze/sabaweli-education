@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import {config as configs} from '../config/configs'
 const baseURL = '';
 
 const instance = axios.create({
@@ -34,7 +34,7 @@ instance.interceptors.request.use(async config => {
   
 instance.interceptors.request.use(async config => {
     const user = localStorage.getItem('token') || "";
-    const baseURL = 'http://localhost:8080/api/v1'
+    const baseURL = `${configs['APPLICATION_URL']}/api/v1`
     const token = user;
     if (config.url && config.url.charAt(0) === '/') {
       config.url = `${baseURL}${config.url}`;
