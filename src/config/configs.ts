@@ -6,7 +6,8 @@ const devConfig = {
     MERCHANT_ID: '10004002',
     PASSPHRASE: 'payfast',
     PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID || "",
-    PAYPAL_SECRET_KEY: process.env.REACT_APP_PAYPAL_SECRETE_KEY || ""
+    PAYPAL_SECRET_KEY: process.env.REACT_APP_PAYPAL_SECRETE_KEY || "",
+    APPLICATION_URL: 'http://localhost:8080'
 };
 
 const prodConfigs = {
@@ -17,7 +18,8 @@ const prodConfigs = {
     MERCHANT_ID: process.env.REACT_APP_MERCHANT_ID || "",
     PASSPHRASE: process.env.PASSPHRASE,
     PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID_PROD || "",
-    PAYPAL_SECRET_KEY: process.env.REACT_APP_PAYPAL_SECRETE_KEY_PROD || ""
+    PAYPAL_SECRET_KEY: process.env.REACT_APP_PAYPAL_SECRETE_KEY_PROD || "",
+    APPLICATION_URL: process.env.REACT_APP_APPLICATION_ENDPOINT || ""
 }
 
 export const config = process.env.NODE_ENV === 'development' ? devConfig : prodConfigs
