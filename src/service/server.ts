@@ -7,6 +7,7 @@ import Itoken from '../interfaces/Authentication/Itoken';
 import ISummarize from '../interfaces/Authentication/ISummarize';
 import IData from '../interfaces/Checkout/IData-interface';
 import ISignature from '../interfaces/Checkout/ISignature-interface';
+import IForm from '../interfaces/Public/IForm-interface';
 
 import { AxiosPromise } from 'axios';
 
@@ -31,6 +32,9 @@ const Server = {
     paypalCheck: (data: { orderID: string, amount: number, paymentType: string, title: string, currency: string }): AxiosPromise => Axios.post('/checkout/paypal/checkout', data),
     // payfast signature
     payfastSignature: (data: ISignature): AxiosPromise => Axios.post('/checkout/payfast/signature', data),
+
+    // Contact form
+    contactForm: (data: IForm): AxiosPromise => Axios.post('/public/contact-form', data),
 }
 
 export default Server;
