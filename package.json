@@ -24,6 +24,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.1",
     "react-paypal-button-v2": "^2.6.3",
+    "react-progressive-bg-image": "^3.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "styled-components": "^5.2.1",
