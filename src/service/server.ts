@@ -12,14 +12,20 @@ import IForm from '../interfaces/Public/IForm-interface';
 import { AxiosPromise } from 'axios';
 
 const Server = {
+    /**  Authentication **/
     // login the user
     loginUser: (data: ILogin): AxiosPromise => Axios.post('/auth/login', data),
     // register the users
     registerUser: (data: IRegister): AxiosPromise => Axios.post('/auth/register', data),
     // Validate verify token
     validateToken: (data: IVerifyToken): AxiosPromise => Axios.post('/auth/verify', data),
+    // request change password
+    requestChangePassword: (data: {email : string}): AxiosPromise => Axios.post('/auth/forgotpasswordrequest', data),
     // check token validity
     verifyUser: (data: Itoken): AxiosPromise => Axios.post('/auth/checkuser', data),
+    //change password
+    changePassword: (data: {token : string, password : string}): AxiosPromise => Axios.post('/auth/forgotpassword', data),
+    /** User Stuff **/
     // Get user details
     getUser: (): AxiosPromise => Axios.get('/user'),
     // Summarize
