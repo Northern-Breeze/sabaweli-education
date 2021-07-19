@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react";
 import { Redirect, Route } from "react-router-dom";
 import Loading from "../components/Loading";
