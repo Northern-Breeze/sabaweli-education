@@ -16,6 +16,8 @@ import checkUser from "./helper/checkUser";
 import Results from "../views/Profile/Results";
 import Loading from "../components/Loading";
 import Audio2Notes from "../views/Profile/Audio2Notes";
+import ForgotPasswordRequest from "../views/Auth/FogotPasswordRequest";
+import ChangePassword from "../views/Auth/ChangePassword";
 
 export default function Routes(): JSX.Element {
   const [status, setStatus] = React.useState(false);
@@ -70,6 +72,8 @@ export default function Routes(): JSX.Element {
         <Route exact path="/features" component={Features} />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/register" component={SignUp} />
+        <Route exact path="/forgotpassword-request" component={ForgotPasswordRequest} />
+        <Route exact path="/forgot-password" component={ChangePassword} />
         <Route component={NotFound} />
       </Switch>
     </Router>
