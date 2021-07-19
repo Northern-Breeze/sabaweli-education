@@ -11,69 +11,47 @@ import Landing from "../views/Landing/Landing";
 import Pricing from "../views/Landing/Pricing";
 import Features from "../views/Landing/Features/Features";
 import Checkout from "../views/Checkout";
-
-import checkUser from "./helper/checkUser";
 import Results from "../views/Profile/Results";
-import Loading from "../components/Loading";
 import Audio2Notes from "../views/Profile/Audio2Notes";
 import ForgotPasswordRequest from "../views/Auth/FogotPasswordRequest";
 import ChangePassword from "../views/Auth/ChangePassword";
 
 export default function Routes(): JSX.Element {
-  const [status, setStatus] = React.useState(false);
-  const [loading, setLoading] = React.useState(true);
-  React.useEffect(() => {
-    const token = localStorage.getItem("token") || "";
-    (async () => {
-      try {
-        const status = await checkUser(token);
-        setStatus(status);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    })();
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <Router>
       <Switch>
         <PrivateRoute
           exact
-          path="/profile"
-          isAuthenticated={status}
+          path='/profile'
           component={Profile}
         />
         <PrivateRoute
           exact
-          path="/profile/audio-2-notes"
-          isAuthenticated={status}
+          path='/profile/audio-2-notes'
           component={Audio2Notes}
         />
         <PrivateRoute
           exact
-          path="/results"
-          isAuthenticated={status}
+          path='/results'
           component={Results}
         />
         <PrivateRoute
           exact
-          path="/checkout"
-          isAuthenticated={status}
+          path='/checkout'
           component={Checkout}
         />
-        <Route exact path="/pricing" component={Pricing} />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/features" component={Features} />
-        <Route exact path="/login" component={SignIn} />
-        <Route exact path="/register" component={SignUp} />
-        <Route exact path="/forgotpassword-request" component={ForgotPasswordRequest} />
-        <Route exact path="/forgot-password" component={ChangePassword} />
+        <Route exact path='/pricing' component={Pricing} />
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/features' component={Features} />
+        <Route exact path='/login' component={SignIn} />
+        <Route exact path='/register' component={SignUp} />
+        <Route
+          exact
+          path='/forgotpassword-request'
+          component={ForgotPasswordRequest}
+        />
+        <Route exact path='/forgot-password' component={ChangePassword} />
         <Route component={NotFound} />
       </Switch>
     </Router>

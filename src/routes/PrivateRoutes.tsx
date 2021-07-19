@@ -1,28 +1,49 @@
-import * as React from 'react'
-import {Redirect, Route, RouteProps, RouteComponentProps} from 'react-router'
+import * as React from "react";
+import { Redirect, Route } from "react-router-dom";
+import Loading from "../components/Loading";
+import Server from '../service/server';
 
-interface PrivateRouteProps extends RouteProps {
-    isAuthenticated: boolean;
+export default function PrivateRoute({ component: Component, ...rest }: any): JSX.Element {
+  const [valid, setValid] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    Server.verifyUser({token: token || ''}).then((response => {
+      if (response.data.success) {
+        setValid(true);
+        setLoading(false);
+      } else {
+        setValid(false);
+        setLoading(false);
+      }
+    })).catch((error) => {
+      console.log(error);
+      setValid(false);
+      setLoading(false);
+
+    })
+  },[])
+
+  if (loading) {
+    return <Loading />
+  }
+
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        valid ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location },
+            }}
+          />
+        )
+      }
+    />
+  );
 }
-
-export class PrivateRoute extends Route<PrivateRouteProps> {
-    render(): JSX.Element {
-        return (
-            <Route render={(props: RouteComponentProps) => {
-                if(!this.props.isAuthenticated) {
-                    return <Redirect to='/login' />
-                } 
-
-                if(this.props.component) {
-                    return React.createElement(this.props.component);
-                } 
-
-                if(this.props.render) {
-                    return this.props.render(props);
-                }
-            }} />
-        );
-    }
-}
-
-export default PrivateRoute

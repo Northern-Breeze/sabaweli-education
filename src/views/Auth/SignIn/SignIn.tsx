@@ -86,8 +86,10 @@ export default function SignIn(): JSX.Element {
           });
           const token = data.token;
           localStorage.setItem("token", token);
-          setLoading(false);
-          history.push("/profile");
+          if(mounted.current) {
+            setLoading(false);
+            history.push("/profile");
+          }
         } else {
           if (mounted.current) {
             setLoading(false);
@@ -112,7 +114,6 @@ export default function SignIn(): JSX.Element {
           },
         });
       }
-      setLoading(false);
     } catch (error) {
       setLoading(false);
       console.log(error);
