@@ -1,3 +1,5 @@
+@import '../../../scss//utilities';
+
 .register-page{
     .login-container{
         background-color: #EBEBEB;
@@ -20,6 +22,10 @@
                 .input{
                     border: 1px solid #D9D9D9;
                     border-radius: 0px;
+                }
+                .button {
+                    background-color: $brink-pink;
+                    color: #fff;
                 }
             }
         }
