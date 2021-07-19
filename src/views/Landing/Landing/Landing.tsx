@@ -2,7 +2,7 @@ import * as React from "react";
 import Template from "../../Template";
 import Button from "../../../components/Button";
 import Notification from "antd/es/notification";
-
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import Feature from "../../../components/Feature";
@@ -22,6 +22,11 @@ type ContactForm = {
 export default function Landing(): JSX.Element {
   const { handleSubmit, register, errors } = useForm<ContactForm>();
   const [loading, setLoading] = React.useState(false);
+  const history = useHistory();
+
+  const goTo = (where: string) => {
+    history.push(where);
+  };
 
   const onSubmit = async (value: ContactForm) => {
     try {
@@ -51,69 +56,83 @@ export default function Landing(): JSX.Element {
   };
   return (
     <Template>
-      <main className="main-content">
-        <div className="hero-image">
-          <div className="call-to-action">
-            <p className="header-description">
-              <span className="title">Sabaweli Education</span> is a platform
+      <main className='main-content'>
+        <div className='hero-image'>
+          <div className='call-to-action'>
+            <p className='header-description'>
+              <span className='title'>Sabaweli Education</span> is a platform
               for students to get the most out of their studies with tools for
               productivity
             </p>
-            <Button className="primary">Explore</Button>
+            <Button
+              className='primary'
+              onClick={() => {
+                goTo("features");
+              }}
+            >
+              Explore
+            </Button>
           </div>
         </div>
-        <div className="features">
-          <div className="header-container">
-            <header className="header">Features</header>
+        <div className='features'>
+          <div className='header-container'>
+            <header className='header'>Features</header>
           </div>
-          <div className="features-container columns">
+          <div className='features-container columns'>
             <Feature
-              header="Audio to Notes"
-              image="https://picsum.photos/id/1/200/300"
-              content="Convert lecture audio to notes with a click of a button, you can also upload videos in mp4 format and the platform will convert to audio then to notes"
+              header='Audio to Notes'
+              image='https://picsum.photos/id/1/200/300'
+              content='Convert lecture audio to notes with a click of a button, you can also upload videos in mp4 format and the platform will convert to audio then to notes'
             />
             <Feature
-              header="Summarize Lecture Notes"
-              image="https://picsum.photos/id/1048/200/300"
-              content="Summarize lecture notes to small and easy to read format to optimize your studies. you can also create word cloud for repeated phrases"
+              header='Summarize Lecture Notes'
+              image='https://picsum.photos/id/1048/200/300'
+              content='Summarize lecture notes to small and easy to read format to optimize your studies. you can also create word cloud for repeated phrases'
             />
             <Feature
-              header="Question and Answer helper"
-              image="https://picsum.photos/id/1014/200/300"
-              content="Generate answers to questions by entering a passage/text from the notes.The generated answer will range from with different confidence"
+              header='Question and Answer helper'
+              image='https://picsum.photos/id/1014/200/300'
+              content='Generate answers to questions by entering a passage/text from the notes.The generated answer will range from with different confidence'
             />
           </div>
         </div>
-        <div className="name-component">
-          <div className="explore-text">Explore Now!</div>
+        <div className='name-component'>
+          <div className='explore-text'>Explore Now!</div>
         </div>
-        <div className="section-last">
-          <div className="show-image">
+        <div className='section-last'>
+          <div className='show-image'>
             <LearnMore />
           </div>
-          <div className="show-text">
-            <div className="sub-hero-text">
+          <div className='show-text'>
+            <div className='sub-hero-text'>
               Find out how you can maximize your studies and gain more time
               doing what you like
             </div>
-            <Button className="secondary">Explore Now!</Button>
+            <Button
+              className='secondary'
+              onClick={() => {
+                goTo("features");
+              }}
+            >
+              Explore Now!
+            </Button>
           </div>
         </div>
-        <div className="contact">
-          <div className="get-in-contact">
-            <div className="get-in-contact-text">Get In Contact</div>
+        <div className='contact'>
+          <div className='get-in-contact'>
+            <div className='get-in-contact-text'>Get In Contact</div>
           </div>
-          <div className="details">
-            <div className="contact-us">
+          <div className='details'>
+            <div className='contact-us'>
               <HomeAnimation />
             </div>
-            <div className="form-container">
+            <div className='form-container'>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="field">
+                <div className='field'>
                   <label>Name</label>
                   <input
-                    className="input"
-                    name="name"
+                    className='input'
+                    name='name'
                     ref={register({ required: true, maxLength: 20 })}
                   />
                   {errors.name ? (
@@ -122,12 +141,12 @@ export default function Landing(): JSX.Element {
                     <span></span>
                   )}
                 </div>
-                <div className="field">
+                <div className='field'>
                   <label>Email</label>
                   <input
-                    className="input"
-                    type="email"
-                    name="email"
+                    className='input'
+                    type='email'
+                    name='email'
                     ref={register({
                       required: true,
                       // eslint-disable-next no-useless-escape
@@ -140,11 +159,11 @@ export default function Landing(): JSX.Element {
                     <span></span>
                   )}
                 </div>
-                <div className="field">
+                <div className='field'>
                   <label>Message</label>
                   <textarea
-                    className="textarea"
-                    name="message"
+                    className='textarea'
+                    name='message'
                     ref={register({ required: true })}
                   ></textarea>
                   {errors.email ? (
@@ -153,10 +172,10 @@ export default function Landing(): JSX.Element {
                     <span></span>
                   )}
                 </div>
-                <div className="field">
+                <div className='field'>
                   <Button
-                    className="secondary"
-                    type="submit"
+                    className='secondary'
+                    type='submit'
                     disabled={loading}
                   >
                     {loading ? "Submitting ..." : "Submit"}
