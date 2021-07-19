@@ -64,7 +64,7 @@ export default function Features(): JSX.Element {
               </Button>
             </div>
             <div className="column feature">
-              <header className="header">Audio to Text</header>
+              <header className="header">Video/Audio to Text</header>
               <p className="description">
                 You can upload an audio upload an audio file of you notes and
                 the system will generate note from the audio, you can share or

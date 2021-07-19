@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Card } from "antd";
+import {useHistory} from 'react-router-dom';
 import Button from "../Button";
 import "./Feature.scss";
 
@@ -13,8 +14,9 @@ type Props = {
 
 export default function Feature(props: Props): JSX.Element {
   const { header, content, image } = props;
+  const history = useHistory();
   const HandleMore = () => {
-    //
+    history.push('/features');
   };
   return (
     <>

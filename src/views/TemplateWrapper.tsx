@@ -69,7 +69,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
               history.push("/profile/audio-2-notes");
             }}
           >
-            Audio to Notes
+            Video/Audio to Notes
           </Menu.Item>
           <Menu.Item
             key="4"
