@@ -1,9 +1,31 @@
-.converter-container{
+@import "../../../scss/utilities";
+@import "../../../scss//button";
+
+.wave-canvas {
+    height: 10rem;
+}
+.converter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  .file-input {
+    display: none;
+  }
+  .custom-file-upload {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    .button.primary {
-        width: 20%;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 9rem;
+    .icon-container {
+      margin-right: 0.8rem;
     }
+  }
+  .button.primary {
+    width: 9rem;
+    font-size: 1rem;
+  }
 }
