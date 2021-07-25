@@ -1,11 +1,14 @@
 import * as React from "react";
 import { UploadOutlined } from "@ant-design/icons";
-import WaveSurfer from "wavesurfer.js";
+import Notification from "antd/es/notification";
+import { useHistory } from 'react-router-dom';
 
 // components
 import TemplateWrapper from "../../TemplateWrapper";
 import Loading from "../../../components/Loading";
 import Button from "../../../components/Button";
+
+import server from "../../../service/server";
 
 import "./Audio2Notes.scss";
 
@@ -13,35 +16,53 @@ export default function Audio2Notes(): JSX.Element {
   const [networkLoading, setNetworkLoading] = React.useState(false);
   const [file, setFile] = React.useState<File>();
 
-  const wavesurfer = React.useRef<WaveSurfer>();
-
-  function readFile(event: any) {      
-      const results = event.target.result;
-      const audio = new Audio();
-      audio.src = URL.createObjectURL(results);
-      if(wavesurfer.current){
-        // wavesurfer.current.load(audio);
-        wavesurfer.current.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
-      }
-  }
+  const history = useHistory();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = event.target.files;
     if (!fileList) return;
-    const mediaFile = fileList[0]
-    setFile(mediaFile); 
-    const reader = new FileReader();
-    reader.addEventListener('load', readFile);
+    const mediaFile = fileList[0];
+    setFile(mediaFile);
   };
-
-  React.useEffect(() => {
-    wavesurfer.current = WaveSurfer.create({
-      container: "#waveform",
-      waveColor: "#f9627dff",
-      progressColor: "purple",
-      barWidth: 2,
-    })    
-  },[])
+  const handleSubmit = async (event: React.FormEvent) => {
+    try {
+      event.preventDefault();
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("fileName", file.name);
+        const response = await server.audioToText(formData);
+        if (response.status === 200) {
+          Notification.open({
+            message: "Success",
+            description: response.data.message,
+            onClick: () => {
+              console.log("Notification Clicked!");
+            },
+          });
+          setNetworkLoading(false);
+          history.push("/results?results=audio-to-text", {
+            data: response.data.data,
+          });
+        } else {
+          Notification.open({
+            message: "Error",
+            description: response.data.message,
+            onClick: () => {
+              console.log("Notification Clicked!");
+            },
+          });
+          setNetworkLoading(false);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      Notification.open({
+        type: "error",
+        message: "Something went wrong",
+      });
+    }
+  };
 
   if (networkLoading) {
     <TemplateWrapper>
@@ -57,7 +78,7 @@ export default function Audio2Notes(): JSX.Element {
         <div id='waveform'></div>
       </div>
       <div className='converter-container'>
-        <form className='form'>
+        <form className='form' onSubmit={handleSubmit}>
           <div className='field'>
             <label className='custom-file-upload'>
               <input
@@ -70,7 +91,7 @@ export default function Audio2Notes(): JSX.Element {
               <div className='icon-container'>
                 <UploadOutlined />
               </div>
-              Select File
+              {file ? 'File Selected': 'Select File'}
             </label>
           </div>
           <div className='field'>
