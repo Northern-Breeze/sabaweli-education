@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@ffmpeg/ffmpeg": "^0.9.7",
     "@stripe/react-stripe-js": "^1.4.0",
     "@stripe/stripe-js": "^1.13.1",
     "@tensorflow-models/qna": "^1.0.0",
@@ -32,9 +31,7 @@
     "react-progressive-bg-image": "^3.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
-    "styled-components": "^5.2.1",
     "typescript": "^4.1.2",
-    "wavesurfer.js": "^5.1.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
