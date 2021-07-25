@@ -1498,16 +1498,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@ffmpeg/ffmpeg@^0.9.7":
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/@ffmpeg/ffmpeg/-/ffmpeg-0.9.8.tgz#d0292ac1e31f6a070b35e18e50dbbd79f2e2bb08"
-  integrity sha512-QradleJx78hHJBtI1wRsus1L1jxQB3v4h6k8c3CERI9fssm+NSSppuofmsOei7uq7iQEYq3oK9tJNAyEsRoNng==
-  dependencies:
-    is-url "^1.2.4"
-    node-fetch "^2.6.1"
-    regenerator-runtime "^0.13.7"
-    resolve-url "^0.2.1"
-
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -8939,11 +8929,6 @@ is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
-is-url@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/is-url/-/is-url-1.2.4.tgz#04a4df46d28c4cff3d73d01ff06abeb318a1aa52"
-  integrity sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==
-
 is-whitespace-character@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/is-whitespace-character/-/is-whitespace-character-1.0.4.tgz#0858edd94a95594c7c9dd0b5c174ec6e45ee4aa7"
@@ -14514,7 +14499,7 @@ style-value-types@4.1.4:
     hey-listen "^1.0.8"
     tslib "^2.1.0"
 
-styled-components@^5, styled-components@^5.2.1:
+styled-components@^5:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.3.0.tgz#e47c3d3e9ddfff539f118a3dd0fd4f8f4fb25727"
   integrity sha512-bPJKwZCHjJPf/hwTJl6TbkSZg/3evha+XPEizrZUGb535jLImwDUdjTNxXqjjaASt2M4qO4AVfoHJNe3XB/tpQ==
@@ -15515,11 +15500,6 @@ watchpack@^1.7.4:
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
-
-wavesurfer.js@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-5.1.0.tgz#7155e76da76ab293b45c80e5c7feeba0a7a282cd"
-  integrity sha512-6qEhIopHwDpZl9otqopIH94gcu1xxbO4JZfjd0kH/s5c4p52BSx3p5/dBH4aappzvxbI+90fxKZKsoqaOUSn8Q==
 
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
