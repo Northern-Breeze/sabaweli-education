@@ -1,0 +1,31 @@
+@import '../../../scss/utilities';
+@import '../../../scss/button';
+
+.qna-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .model {
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .info {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            .field {
+                .textarea {
+                    width: 30rem;
+                }
+                .input {
+                    width: 20rem;
+                }
+                .button {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+}

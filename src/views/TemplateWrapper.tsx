@@ -8,7 +8,7 @@ import {
   MenuFoldOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  CalendarOutlined,
+  ClockCircleOutlined,
   SettingOutlined,
   LogoutOutlined,
   QuestionOutlined,
@@ -69,16 +69,16 @@ export default function TemplateWrapper(props: Props): JSX.Element {
               history.push("/profile/audio-2-notes");
             }}
           >
-            Video/Audio to Notes
+            Audio to Notes
           </Menu.Item>
           <Menu.Item
             key="4"
-            icon={<CalendarOutlined />}
+            icon={<ClockCircleOutlined />}
             onClick={() => {
-              history.push("/profile/notes-summarizer");
+              history.push("/profile/study-coach");
             }}
           >
-            Notes Summarizer
+            Study Coach
           </Menu.Item>
           <Menu.Item
             key="7"

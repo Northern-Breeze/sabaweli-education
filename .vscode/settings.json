@@ -6,7 +6,11 @@
         "Sider",
         "antd",
         "checkuser",
+        "flac",
         "forgotpassword",
-        "forgotpasswordrequest"
+        "forgotpasswordrequest",
+        "networkloading",
+        "tfjs",
+        "wavesurfer"
     ]
 }

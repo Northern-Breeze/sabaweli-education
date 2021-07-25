@@ -41,6 +41,10 @@ const Server = {
 
     // Contact form
     contactForm: (data: IForm): AxiosPromise => Axios.post('/public/contact-form', data),
+
+    // Study
+    getSessions: (): AxiosPromise => Axios.get('/study'),
+    createSession: (data: { title: string }): AxiosPromise => Axios.post('/study/create', data)
 }
 
 export default Server;
