@@ -1,0 +1,45 @@
+@import '../../../scss/utilities';
+@import '../../../scss/button';
+
+
+
+.main-counter {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;
+    .header {
+        max-width: 50rem;
+        h1 {
+            font-family: $font-family;
+            font-size: 4rem;
+        }
+        .study-coach-text {
+            font-family: $font-family;
+        }
+    }
+    .timer-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .timer {           
+            padding: 10px;
+            .counter-container {
+                font-size: 6rem;
+                font-family: $font-family;
+                .colons {
+                    color: $brink-pink
+                }
+            }
+        }
+        .timer-controls {
+            button {
+                width: 10rem;
+            }
+
+        }
+    }
+}
