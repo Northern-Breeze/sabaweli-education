@@ -79,7 +79,7 @@ const CheckoutForm = (props: Props): JSX.Element => {
   return (
     <form onSubmit={handleSubmit}>
       <CardElement options={options} />
-      <Button disabled={!stripe} className="primary" type="submit">
+      <Button disabled={true} className="primary" type="submit">
         Pay
       </Button>
     </form>
