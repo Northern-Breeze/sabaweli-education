@@ -85,9 +85,9 @@ export default function Landing(): JSX.Element {
               content='Convert lecture audio to notes with a click of a button, you can also upload videos in mp4 format and the platform will convert to audio then to notes'
             />
             <Feature
-              header='Summarize Lecture Notes'
+              header='Study Coach'
               image='https://picsum.photos/id/1048/200/300'
-              content='Summarize lecture notes to small and easy to read format to optimize your studies. you can also create word cloud for repeated phrases'
+              content='Study Coach is feature that allows you to track and keep a consistence study pattern of your schedule and alerts you if you are behind'
             />
             <Feature
               header='Question and Answer helper'
