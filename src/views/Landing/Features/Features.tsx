@@ -44,52 +44,52 @@ export default function Features(): JSX.Element {
   }
   return (
     <Template>
-      <div className="website-features">
-        <div className="features">
-          <div className="columns">
-            <div className="column feature">
-              <header className="header">Summarize Notes</header>
-              <p className="description">
-                Using Sabaweli Education Notes Summarizer, you can copy and
-                paste or upload lecture notes or news article for easier
-                learning and reading.
+      <div className='website-features'>
+        <div className='features'>
+          <div className='columns'>
+            <div className='column feature'>
+              <header className='header'>Study Coach</header>
+              <p className='description'>
+                Study Coach is a feature od Sabaweli Education where you can
+                track and keep a constance pattern of your studies. There is
+                also analytics to show progress
               </p>
               <Button
-                className="primary"
+                className='primary'
                 onClick={() => {
-                  history.push('/profile');
+                  history.push("/profile");
                 }}
               >
                 Start Now
               </Button>
             </div>
-            <div className="column feature">
-              <header className="header">Video/Audio to Text</header>
-              <p className="description">
+            <div className='column feature'>
+              <header className='header'>Video/Audio to Text</header>
+              <p className='description'>
                 You can upload an audio upload an audio file of you notes and
                 the system will generate note from the audio, you can share or
                 download the text file
               </p>
               <Button
-                className="primary"
+                className='primary'
                 onClick={() => {
-                  history.push('/profile');
+                  history.push("/profile");
                 }}
               >
                 Sart Now
               </Button>
             </div>
-            <div className="column feature">
-              <header className="header">Question generator</header>
-              <p className="description">
+            <div className='column feature'>
+              <header className='header'>Question generator</header>
+              <p className='description'>
                 You can upload notes to the system, ask it questions and it will
                 generate questions for you as a reverse question answer study
                 method.
               </p>
               <Button
-                className="primary"
+                className='primary'
                 onClick={() => {
-                  history.push('/profile');
+                  history.push("/profile");
                 }}
               >
                 Start Now
