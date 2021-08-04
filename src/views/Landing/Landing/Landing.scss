@@ -126,9 +126,9 @@
             .get-in-contact-text {
                 font-weight: 400;
                 font-size: 30px;
-                font-family: 'Source Code Pro', monospace;
                 border-bottom: 10px solid $brink-pink;
                 color: #5b3758ff;
+                font-family: $font-family;
 
             }
         }
