@@ -12,23 +12,29 @@ export default function Bargraph(props: Props): JSX.Element {
       <VictoryGroup offset={20} colorScale={"qualitative"}>
         <VictoryBar
           data={[
-            { x: 1, y: 1 },
-            { x: 2, y: 2 },
-            { x: 3, y: 5 },
+            { x: 'Mon', y: 1 },
+            { x: 'Tue', y: 2 },
+            { x: 'Wed', y: 3 },
+            { x: 'Thur', y: 1 },
+            { x: 'Fri', y: 5 },
           ]}
         />
         <VictoryBar
           data={[
-            { x: 1, y: 2 },
-            { x: 2, y: 1 },
-            { x: 3, y: 7 },
+            { x: 'Mon', y: 1 },
+            { x: 'Tue', y: 2 },
+            { x: 'Wed', y: 2 },
+            { x: 'Thur', y: 2 },
+            { x: 'Fri', y: 5 },
           ]}
         />
         <VictoryBar
           data={[
-            { x: 1, y: 3 },
-            { x: 2, y: 4 },
-            { x: 3, y: 9 },
+            { x: 'Mon', y: 1 },
+            { x: 'Tue', y: 2 },
+            { x: 'Wed', y: 2 },
+            { x: 'Thur', y: 2 },
+            { x: 'Fri', y: 5 },
           ]}
         />
       </VictoryGroup>

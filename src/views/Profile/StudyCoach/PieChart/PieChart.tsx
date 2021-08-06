@@ -6,9 +6,11 @@ export default function PieCart(): JSX.Element {
     <VictoryPie
       colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
       data={[
-        { x: "Cats", y: 35 },
-        { x: "Dogs", y: 40 },
-        { x: "Birds", y: 55 },
+        { x: "Mon", y: 35 },
+        { x: "Tue", y: 35 },
+        { x: "Wed", y: 35 },
+        { x: "Thur", y: 40 },
+        { x: "Fri", y: 55 },
       ]}
     />
   );
