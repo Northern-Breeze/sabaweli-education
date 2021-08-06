@@ -7,11 +7,15 @@ import {
   MailOutlined,
   DatabaseOutlined,
 } from "@ant-design/icons";
-
-import Animation from "../../assets/annimation/10965-camin.json";
+import Skeleton from "antd/es/skeleton";
 
 // Components
 import Template from "../TemplateWrapper";
+import Animation from "../../assets/annimation/10965-camin.json";
+import Bargraph from "./StudyCoach/Bargraph";
+import Linegraph from "./StudyCoach/Linegraph";
+import PieChart from "./StudyCoach/PieChart/PieChart";
+
 // stylesheets
 import "./Profile.scss";
 
@@ -37,8 +41,9 @@ type User = {
 
 export default function Profile(): JSX.Element {
   const [user, setUser] = React.useState<User>();
-  const [networkLoading, setNetworkLoading] = React.useState(true);
+  const [networkLoading, setNetworkLoading] = React.useState(false);
   const history = useHistory();
+
   // Fetch users
   const fetchUser = async () => {
     const response = await Server.getUser();
@@ -67,12 +72,12 @@ export default function Profile(): JSX.Element {
   const planFormatter = (plan: number) => {
     return (
       <button
-      className="button primary"
+        className='button primary'
         onClick={() => {
-          history.push('/pricing');
+          history.push("/pricing");
         }}
       >
-       Buy conversion {plan}
+        Buy conversion {plan}
       </button>
     );
   };
@@ -80,8 +85,8 @@ export default function Profile(): JSX.Element {
   // Handle video upload
   if (networkLoading) {
     return (
-      <div className="networkloading">
-        <div className="animation">
+      <div className='networkloading'>
+        <div className='animation'>
           <LoadingAnimation />
         </div>
       </div>
@@ -90,33 +95,70 @@ export default function Profile(): JSX.Element {
 
   return (
     <Template>
-      <div className="profile-container">
-        <div className="profile-avatar">
-          <div className="profile-card">
-            <img src={user?.avatar} alt={user?.name} className="avatar" />
-            <div className="details">
-              <div className="user-details">
-                <span className="icon">
-                  <UserOutlined size={20} />
-                </span>
-                <span>{user?.name}</span>
+      <div className='profile-container'>
+        <div>
+          <div className='profile-avatar'>
+            <div className='profile-card'>
+              <img src={user?.avatar} alt={user?.name} className='avatar' />
+              <div className='details'>
+                <div className='user-details'>
+                  <span className='icon'>
+                    <UserOutlined size={20} />
+                  </span>
+                  <span>{user?.name}</span>
+                </div>
+                <div className='user-details'>
+                  <span className='icon'>
+                    <MailOutlined size={20} />
+                  </span>
+                  <span>{user?.email}</span>
+                </div>
+                <div className='user-details'>
+                  <span className='icon'>
+                    <DatabaseOutlined size={20} />
+                  </span>
+                  <span>
+                    {typeof user?.userPlan !== "undefined" &&
+                    user?.userPlan <= 6
+                      ? planFormatter(user.userPlan)
+                      : `${user?.userPlan} MB`}
+                  </span>
+                </div>
               </div>
-              <div className="user-details">
-                <span className="icon">
-                  <MailOutlined size={20} />
-                </span>
-                <span>{user?.email}</span>
-              </div>
-              <div className="user-details">
-                <span className="icon">
-                  <DatabaseOutlined size={20} />
-                </span>
-                <span>
-                  {typeof user?.userPlan !== "undefined" && user?.userPlan <= 6
-                    ? planFormatter(user.userPlan)
-                    : `${user?.userPlan} MB` }
-                </span>
-              </div>
+            </div>
+          </div>
+        </div>
+        <div className='charts'>
+          <div className='columns'>
+            <div className='column'>
+              {networkLoading && (
+                <Skeleton.Avatar
+                  className='loading-skeleton'
+                  style={{ width: "25rem", height: "15rem" }}
+                  shape='square'
+                />
+              )}
+              {!networkLoading && <Bargraph loading={networkLoading} />}
+            </div>
+            <div className='column'>
+              {networkLoading && (
+                <Skeleton.Avatar
+                  className='loading-skeleton'
+                  style={{ width: "25rem", height: "15rem" }}
+                  shape='square'
+                />
+              )}
+              {!networkLoading && <Linegraph />}
+            </div>
+            <div className='column'>
+              {networkLoading && (
+                <Skeleton.Avatar
+                  className='loading-skeleton'
+                  style={{ width: "25rem", height: "15rem" }}
+                  shape='square'
+                />
+              )}
+              {!networkLoading && <PieChart />}
             </div>
           </div>
         </div>

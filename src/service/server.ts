@@ -44,7 +44,8 @@ const Server = {
 
     // Study
     getSessions: (): AxiosPromise => Axios.get('/study'),
-    createSession: (data: { title: string }): AxiosPromise => Axios.post('/study/create', data)
+    createSession: (data: { title: string }): AxiosPromise => Axios.post('/study/create', data),
+    addSessionEntry: (data: { title: string, timer: number }): AxiosPromise => Axios.post('/study/add', data)
 }
 
 export default Server;

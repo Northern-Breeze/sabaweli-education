@@ -5,17 +5,17 @@
   justify-content: center;
   align-items: center;
   background: $gradient-right;
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   .features {
     flex-direction: row;
     justify-content: center;
     align-items: center;
     .column {
-      margin: 10px;
+      margin: 20px;
     }
     .feature {
-      width: 400px;
+      width: 22rem;
       border-radius: 10px;
       background: #fff;
       .header {
