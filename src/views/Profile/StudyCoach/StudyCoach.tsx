@@ -127,9 +127,31 @@ export default function StudyCoach(): JSX.Element {
     setTimer(0);
   };
 
-  const toggleControl = () => {
+  const toggleControl = async () => {
     if (timer > 0) {
       handleStop();
+      try {
+        const response = await Server.addSessionEntry({
+          title: sessionName,
+          timer: timer,
+        });
+        if (response.data.success) {
+          Notification.open({
+            message: response.data.message,
+            type: "success",
+          });
+        } else {
+          Notification.open({
+            message: response.data.message,
+            type: "error",
+          });
+        }
+      } catch (error) {
+        Notification.open({
+          message: "Server might be down",
+          type: "error",
+        });
+      }
     } else {
       handleStart();
     }
