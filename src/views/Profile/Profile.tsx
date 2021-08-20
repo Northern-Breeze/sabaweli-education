@@ -121,7 +121,7 @@ export default function Profile(): JSX.Element {
                     {typeof user?.userPlan !== "undefined" &&
                     user?.userPlan <= 6
                       ? planFormatter(user.userPlan)
-                      : `${user?.userPlan} MB`}
+                      : `${user?.userPlan} mins`}
                   </span>
                 </div>
               </div>
