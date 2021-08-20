@@ -21,19 +21,18 @@ export default function Pricing(): JSX.Element {
               <div className="price-header">
                 <span>BASIC</span>
               </div>
-              <div className="price-price">$ 2</div>
+              <div className="price-price">$ 1</div>
               <div className="price-body">
-                Great if you just want to get your feet wet and start using our
-                services
+                You can convert 20 mins audio file length for just $1
               </div>
-              <div className="price-footer">GET 20 MB</div>
+              <div className="price-footer">Get 20 mins</div>
               <div className="price-buy">
                 <Button
                   className="primary"
                   onClick={() => {
                     history.push({
                       pathname: "/checkout",
-                      state: { package: "basic", price: 2.0, name: '20 MB' },
+                      state: { package: "basic", price: 1.0, name: '20 mins' },
                     });
                   }}
                 >
@@ -45,19 +44,18 @@ export default function Pricing(): JSX.Element {
               <div className="price-header">
                 <span>Radical</span>
               </div>
-              <div className="price-price">$ 14</div>
+              <div className="price-price">$ 6</div>
               <div className="price-body">
-                Great if you just want to get your feet wet and start using our
-                services
+                You can convert 40 mins audio file length for just $6
               </div>
-              <div className="price-footer">GET 30 MB</div>
+              <div className="price-footer">GET 40 mins</div>
               <div className="price-buy">
                 <Button
                   className="primary"
                   onClick={() => {
                     history.push({
                       pathname: "/checkout",
-                      state: { package: "Radical", price: 14.0, name: '30 MB' },
+                      state: { package: "Radical", price: 6.0, name: '40 mins' },
                     });
                   }}
                 >
@@ -69,19 +67,18 @@ export default function Pricing(): JSX.Element {
               <div className="price-header">
                 <span>Pro</span>
               </div>
-              <div className="price-price">$ 30</div>
+              <div className="price-price">$ 20</div>
               <div className="price-body">
-                Great if you just want to get your feet wet and start using our
-                services
+                You can convert 120 mins audio file length for just $20
               </div>
-              <div className="price-footer">GET 80 MB</div>
+              <div className="price-footer">GET 120 mins</div>
               <div className="price-buy">
                 <Button
                   className="primary"
                   onClick={() => {
                     history.push({
                       pathname: "/checkout",
-                      state: { package: "Pro", price: 30.0, name: '80 MB' },
+                      state: { package: "Pro", price: 20.0, name: '120 mins' },
                     });
                   }}
                 >
