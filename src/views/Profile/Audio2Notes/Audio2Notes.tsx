@@ -1,7 +1,7 @@
 import * as React from "react";
 import { UploadOutlined } from "@ant-design/icons";
 import Notification from "antd/es/notification";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 // components
 import TemplateWrapper from "../../TemplateWrapper";
@@ -31,6 +31,7 @@ export default function Audio2Notes(): JSX.Element {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("fileName", file.name);
+        setNetworkLoading(true);
         const response = await server.audioToText(formData);
         if (response.status === 200) {
           Notification.open({
@@ -46,11 +47,8 @@ export default function Audio2Notes(): JSX.Element {
           });
         } else {
           Notification.open({
-            message: "Error",
-            description: response.data.message,
-            onClick: () => {
-              console.log("Notification Clicked!");
-            },
+            type: 'error',
+            message: response.data.message,
           });
           setNetworkLoading(false);
         }
@@ -61,15 +59,18 @@ export default function Audio2Notes(): JSX.Element {
         type: "error",
         message: "Something went wrong",
       });
+      setNetworkLoading(false);
     }
   };
 
   if (networkLoading) {
-    <TemplateWrapper>
-      <div className='converter-container'>
-        <Loading />
-      </div>
-    </TemplateWrapper>;
+    return (
+      <TemplateWrapper>
+        <div>
+          <Loading />
+        </div>
+      </TemplateWrapper>
+    );
   }
 
   return (
@@ -83,7 +84,7 @@ export default function Audio2Notes(): JSX.Element {
             <label className='custom-file-upload'>
               <input
                 type='file'
-                accept='.mp4,.mp4,.wav,.flac'
+                accept='.mp4,.mp3,.wav,.flac'
                 name='file'
                 className='file-input'
                 onChange={handleFileChange}
@@ -91,11 +92,11 @@ export default function Audio2Notes(): JSX.Element {
               <div className='icon-container'>
                 <UploadOutlined />
               </div>
-              {file ? 'File Selected': 'Select File'}
+              {file ? "File Selected" : "Select File"}
             </label>
           </div>
           <div className='field'>
-            <Button className='primary' type='button'>
+            <Button className='primary' type='submit'>
               Upload Media
             </Button>
           </div>
