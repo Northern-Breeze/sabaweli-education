@@ -2,7 +2,7 @@ import * as React from "react";
 import { useLottie } from "lottie-react";
 import './Loading.scss';
 
-const LoadingAnimation = () => {
+export const LoadingAnimation = (): React.ReactElement => {
     const options = {
       animationData: Animation,
       loop: true,
