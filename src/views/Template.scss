@@ -9,10 +9,12 @@
 }
 
 .sleepy-warpper{
-    height: 80px;
+    height: 6rem;
     background-color: $white;
     color: $white;
     width: 100%;
+    font-family: $font-family;
+    font-size: 1.3rem;
     .navbar-end {
         .navbar-item {
             .buttons-container {
@@ -26,9 +28,12 @@
             }
         }
     }
+    .navbar-item img {
+            max-height: 5rem;           
+            width: 5rem;
+    }
     .logo{
         padding: 5px;
-        width: 36px;
-        height: 28px;
+        height: 18rem;
     }
 }
