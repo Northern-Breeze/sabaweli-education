@@ -1,0 +1,29 @@
+@import '../../../scss/utilities';
+
+.contact-us-container {
+    background: $gradient-right;
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        height: 100vh;
+        width: 100vw;
+        .background {
+            background-image: url('../../../assets/contact.jpg');
+            width: 100%;
+            height: 35rem;
+            margin: 4rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            border-radius: 1rem;
+        }
+        .form-container {
+            width: 100%;
+            height: 20rem;
+            margin: 4rem;
+        }
+    }
+}
