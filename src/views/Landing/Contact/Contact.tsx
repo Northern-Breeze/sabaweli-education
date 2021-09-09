@@ -14,6 +14,7 @@ type ContactForm = {
 };
 
 import Server from "../../../service/server";
+import LearnMore from "../../../components/LearnMore";
 
 export default function Contact(): JSX.Element {
   const { handleSubmit, register, errors } = useForm<ContactForm>();
@@ -48,7 +49,9 @@ export default function Contact(): JSX.Element {
     <Template>
       <div className='contact-us-container'>
         <div className="content">
-        <div className='background'></div>
+        <div className='background'>
+          <LearnMore />
+        </div>
         <div className='form-container'>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='field'>
