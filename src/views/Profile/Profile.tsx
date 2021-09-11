@@ -32,11 +32,15 @@ const LoadingAnimation = () => {
   return View;
 };
 
+type Data = { id: number; duration: number; name: string; sessionId: number };
+
+
 type User = {
   name: string;
   email: string;
   avatar: string;
   userPlan: number;
+  data: Data[];
 };
 
 export default function Profile(): JSX.Element {
@@ -53,6 +57,7 @@ export default function Profile(): JSX.Element {
         email: response.data.data.email,
         avatar: response.data.data.avatar,
         userPlan: response.data.data.dataPlan,
+        data: response.data.data.data,
       });
     } else {
       notification.open({
@@ -158,7 +163,7 @@ export default function Profile(): JSX.Element {
                   shape='square'
                 />
               )}
-              {!networkLoading && <PieChart />}
+              {!networkLoading && <PieChart data={user?.data} />}
             </div>
           </div>
         </div>
