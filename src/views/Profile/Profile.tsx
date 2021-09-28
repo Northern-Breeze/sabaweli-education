@@ -7,14 +7,11 @@ import {
   MailOutlined,
   DatabaseOutlined,
 } from "@ant-design/icons";
-import Skeleton from "antd/es/skeleton";
 
 // Components
 import Template from "../TemplateWrapper";
 import Animation from "../../assets/annimation/10965-camin.json";
-import Bargraph from "./StudyCoach/Bargraph";
-import Linegraph from "./StudyCoach/Linegraph";
-import PieChart from "./StudyCoach/PieChart/PieChart";
+
 
 // stylesheets
 import "./Profile.scss";
@@ -32,11 +29,15 @@ const LoadingAnimation = () => {
   return View;
 };
 
+type Data = { id: number; duration: number; name: string; sessionId: number, createdAt: string };
+
+
 type User = {
   name: string;
   email: string;
   avatar: string;
   userPlan: number;
+  data: Data[];
 };
 
 export default function Profile(): JSX.Element {
@@ -53,6 +54,7 @@ export default function Profile(): JSX.Element {
         email: response.data.data.email,
         avatar: response.data.data.avatar,
         userPlan: response.data.data.dataPlan,
+        data: response.data.data.data,
       });
     } else {
       notification.open({
@@ -128,7 +130,7 @@ export default function Profile(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className='charts'>
+        {/* <div className='charts'>
           <div className='columns'>
             <div className='column'>
               {networkLoading && (
@@ -148,7 +150,7 @@ export default function Profile(): JSX.Element {
                   shape='square'
                 />
               )}
-              {!networkLoading && <Linegraph />}
+              {!networkLoading && <Linegraph data={user?.data} />}
             </div>
             <div className='column'>
               {networkLoading && (
@@ -158,10 +160,10 @@ export default function Profile(): JSX.Element {
                   shape='square'
                 />
               )}
-              {!networkLoading && <PieChart />}
+              {!networkLoading && <PieChart data={user?.data} />}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Template>
   );
