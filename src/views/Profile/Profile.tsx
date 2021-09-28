@@ -32,7 +32,7 @@ const LoadingAnimation = () => {
   return View;
 };
 
-type Data = { id: number; duration: number; name: string; sessionId: number };
+type Data = { id: number; duration: number; name: string; sessionId: number, createdAt: string };
 
 
 type User = {
@@ -133,7 +133,7 @@ export default function Profile(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className='charts'>
+        {/* <div className='charts'>
           <div className='columns'>
             <div className='column'>
               {networkLoading && (
@@ -153,7 +153,7 @@ export default function Profile(): JSX.Element {
                   shape='square'
                 />
               )}
-              {!networkLoading && <Linegraph />}
+              {!networkLoading && <Linegraph data={user?.data} />}
             </div>
             <div className='column'>
               {networkLoading && (
@@ -166,7 +166,7 @@ export default function Profile(): JSX.Element {
               {!networkLoading && <PieChart data={user?.data} />}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Template>
   );
