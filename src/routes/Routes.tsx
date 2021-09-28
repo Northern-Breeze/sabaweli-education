@@ -17,6 +17,8 @@ import ForgotPasswordRequest from "../views/Auth/FogotPasswordRequest";
 import ChangePassword from "../views/Auth/ChangePassword";
 import QuestionSimulator from "../views/Profile/QuestionSimulator";
 import StudyCoach from "../views/Profile/StudyCoach";
+import About from "../views/Landing/About";
+import Contact from "../views/Landing/Contact";
 
 export default function Routes(): JSX.Element {
   return (
@@ -42,6 +44,8 @@ export default function Routes(): JSX.Element {
         <PrivateRoute exact path='/checkout' component={Checkout} />
         <Route exact path='/pricing' component={Pricing} />
         <Route exact path='/' component={Landing} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/contact" component={Contact} />
         <Route exact path='/features' component={Features} />
         <Route exact path='/login' component={SignIn} />
         <Route exact path='/register' component={SignUp} />
