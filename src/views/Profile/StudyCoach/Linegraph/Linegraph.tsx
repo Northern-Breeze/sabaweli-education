@@ -1,7 +1,15 @@
 import * as React from "react";
 import { VictoryChart, VictoryTheme, VictoryLine } from "victory";
 
-export default function Linegraph(): JSX.Element {
+type Props = {
+  data: any
+}
+
+export default function Linegraph(props: Props): JSX.Element {
+
+  const { data } = props;
+  console.log(data);
+
   return (
     <VictoryChart theme={VictoryTheme.material}>
       <VictoryLine
@@ -19,7 +27,7 @@ export default function Linegraph(): JSX.Element {
       />
       <VictoryLine
         style={{
-          data: { stroke: "#c43a31" },
+          data: { stroke: "blue" },
           parent: { border: "1px solid #ccc" },
         }}
         data={[
