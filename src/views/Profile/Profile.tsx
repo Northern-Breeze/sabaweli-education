@@ -12,8 +12,6 @@ import Skeleton from "antd/es/skeleton";
 // Components
 import Template from "../TemplateWrapper";
 import Animation from "../../assets/annimation/10965-camin.json";
-import Bargraph from "./StudyCoach/Bargraph";
-import Linegraph from "./StudyCoach/Linegraph";
 import PieChart from "./StudyCoach/PieChart/PieChart";
 
 // stylesheets
