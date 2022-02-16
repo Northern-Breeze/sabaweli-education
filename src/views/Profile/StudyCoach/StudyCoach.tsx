@@ -44,6 +44,7 @@ export default function StudyCoach(): JSX.Element {
 
   // refs
   const mounted = React.useRef(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const counterRef = React.useRef<any>();
 
   const handleStart = () => {
@@ -206,14 +207,6 @@ export default function StudyCoach(): JSX.Element {
               onChange={handleSelectValue}
               notFoundContent={
                 <NotFound createCallback={handleCreateSession} />
-              }
-              filterOption={(input, option) =>
-                option?.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-              }
-              filterSort={(optionA, optionB) =>
-                optionA.children
-                  .toLowerCase()
-                  .localeCompare(optionB.children.toLowerCase())
               }
             >
               {sessions.map((item, index) => {
