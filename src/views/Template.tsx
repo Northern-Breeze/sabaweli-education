@@ -24,7 +24,7 @@ export default function Template(props: Props): JSX.Element {
         <div className="navbar-brand">
           <div className="navbar-item">
             <a href="/">
-              <img src={Logo} className="logo" alt="Sleepybears" />
+              <img src={Logo} className="logo" alt="Sabaweli Education Logo" width="200px" height="200px" />
             </a>
           </div>
 
