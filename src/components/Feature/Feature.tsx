@@ -23,7 +23,7 @@ export default function Feature(props: Props): JSX.Element {
       <Card
         hoverable
         style={{ width: 240 }}
-        cover={<img alt={header} src={image} />}
+        cover={<img alt={header} src={image} width="200" height="300" />}
         className="card"
       >
         <Meta

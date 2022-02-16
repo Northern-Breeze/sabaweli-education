@@ -13,7 +13,7 @@ function App(): JSX.Element {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Sabaweli Education - Learning Encapsulated</title>
-        <link rel="canonical" href="http://sabaweli.netlify.app" />
+        <link rel="canonical" href="http://sabaweli.xyz" />
       </Helmet>
       <Routes />
     </Provider>
