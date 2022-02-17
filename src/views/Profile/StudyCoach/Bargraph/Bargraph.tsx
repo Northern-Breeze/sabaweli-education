@@ -1,12 +1,8 @@
 import * as React from "react";
 import { VictoryBar, VictoryChart, VictoryGroup } from "victory";
 
-type Props = {
-  loading: boolean;
-};
 
-export default function Bargraph(props: Props): JSX.Element {
-  const { loading } = props;
+export default function Bargraph(): JSX.Element {
   return (
     <VictoryChart>
       <VictoryGroup offset={20} colorScale={"qualitative"}>

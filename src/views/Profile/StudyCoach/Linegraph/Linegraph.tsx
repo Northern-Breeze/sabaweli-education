@@ -1,14 +1,7 @@
 import * as React from "react";
 import { VictoryChart, VictoryTheme, VictoryLine } from "victory";
 
-type Props = {
-  data: any
-}
-
-export default function Linegraph(props: Props): JSX.Element {
-
-  const { data } = props;
-  console.log(data);
+export default function Linegraph(): JSX.Element {
 
   return (
     <VictoryChart theme={VictoryTheme.material}>

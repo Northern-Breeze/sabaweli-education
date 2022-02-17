@@ -43,20 +43,19 @@ export default function Routes(): JSX.Element {
           />
           <PrivateRoute exact path='/results' component={Results} />
           <PrivateRoute exact path='/checkout' component={Checkout} />
-          <Route exact path='/pricing' component={Pricing} />
-          <Route exact path='/' component={Landing} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path='/features' component={Features} />
-          <Route exact path='/login' component={SignIn} />
-          <Route exact path='/register' component={SignUp} />
+          <Route path='/pricing' element={Pricing} />
+          <Route path='/' element={Landing} />
+          <Route path="/about" element={About} />
+          <Route path="/contact" element={Contact} />
+          <Route path='/features' element={Features} />
+          <Route path='/login' element={SignIn} />
+          <Route path='/register' element={SignUp} />
           <Route
-            exact
             path='/forgotpassword-request'
-            component={ForgotPasswordRequest}
+            element={ForgotPasswordRequest}
           />
-          <Route exact path='/forgot-password' component={ChangePassword} />
-          <Route component={NotFound} />
+          <Route path='/forgot-password' element={ChangePassword} />
+          <Route element={NotFound} />
         </Switch>
       </React.Suspense>
     </Router>
