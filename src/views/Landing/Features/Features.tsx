@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../../../components/Button";
 import Template from "../../Template";
 
@@ -12,7 +12,7 @@ function useQuery() {
 }
 
 export default function Features(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const query = useQuery();
   if (query.get("name") === "notes-summarizer") {
     return (
@@ -57,7 +57,7 @@ export default function Features(): JSX.Element {
               <Button
                 className='primary'
                 onClick={() => {
-                  history.push("/profile");
+                  navigate("/profile");
                 }}
               >
                 Start Now
@@ -73,7 +73,7 @@ export default function Features(): JSX.Element {
               <Button
                 className='primary'
                 onClick={() => {
-                  history.push("/profile");
+                  navigate("/profile");
                 }}
               >
                 Sart Now
@@ -89,7 +89,7 @@ export default function Features(): JSX.Element {
               <Button
                 className='primary'
                 onClick={() => {
-                  history.push("/profile");
+                  navigate("/profile");
                 }}
               >
                 Start Now

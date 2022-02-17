@@ -1,7 +1,7 @@
 import * as React from "react";
 import { UploadOutlined } from "@ant-design/icons";
 import Notification from "antd/es/notification";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // components
 import TemplateWrapper from "../../TemplateWrapper";
@@ -16,7 +16,7 @@ export default function Audio2Notes(): JSX.Element {
   const [networkLoading, setNetworkLoading] = React.useState(false);
   const [file, setFile] = React.useState<File>();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileList = event.target.files;
@@ -42,9 +42,9 @@ export default function Audio2Notes(): JSX.Element {
             },
           });
           setNetworkLoading(false);
-          history.push("/results?results=audio-to-text", {
+          navigate("/results?results=audio-to-text", {state: {
             data: response.data.data,
-          });
+          }});
         } else {
           Notification.open({
             type: 'error',

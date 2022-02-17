@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Template from '../../../TemplateWrapper';
 import './TextSummary.scss';
@@ -11,10 +11,10 @@ type Props = {
 
 export default function TextSummary(props: Props): JSX.Element  {
     const { textSummary } = props;
-    const history = useHistory();
+    const navigate = useNavigate();
     React.useEffect(() => {
         if(textSummary === ''){
-            history.push('/profile');
+            navigate('/profile');
         }
     },[history, textSummary]);
 

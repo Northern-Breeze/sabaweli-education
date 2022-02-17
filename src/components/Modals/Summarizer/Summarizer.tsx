@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {  notification, Modal } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Server from '../../../service/server';
 import { useForm } from "react-hook-form";
 
@@ -24,7 +24,7 @@ export default function Summarizer(props: Props): JSX.Element  {
     const { open, setOpen, setNetworkLoading } = props;
 
     // Hooks init
-    const history = useHistory();
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 
     const handleCancel = () => {
@@ -49,7 +49,7 @@ export default function Summarizer(props: Props): JSX.Element  {
                     });
                     setOpen(false);
                     setNetworkLoading(false);
-                    history.push('/results?results=text-summary', { data: response.data.data });
+                    navigate('/results?results=text-summary', { state: {data: response.data.data }});
             }else{
                 notification.open({
                     message: 'Error',

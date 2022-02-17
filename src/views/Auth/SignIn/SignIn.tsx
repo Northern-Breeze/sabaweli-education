@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { notification } from "antd";
 
@@ -20,7 +20,7 @@ export default function SignIn(): JSX.Element {
   const [loading, setLoading] = React.useState(false);
   const mounted = React.useRef(true);
 
-  const history = useHistory();
+  const navigate = useNavigate();
   React.useEffect(() => {
     const location = window.location.href.split("?");
     if (location) {
@@ -88,7 +88,7 @@ export default function SignIn(): JSX.Element {
           localStorage.setItem("token", token);
           if(mounted.current) {
             setLoading(false);
-            history.push("/profile");
+            navigate("/profile");
           }
         } else {
           if (mounted.current) {

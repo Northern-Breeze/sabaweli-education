@@ -14,17 +14,36 @@
       content="Study helper, Convert to Notes, Audio to notes, Audio to text,Generate questions"
     />
     <meta name="author" content="Samuel Mothwa" />
-    <link
-      rel="stylesheet"
-      href="./fonts/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="./bulma/bulma.min.css"
-    />
+    <link rel="stylesheet" href="./fonts/all.min.css" />
+    <link rel="stylesheet" href="./bulma/bulma.min.css" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Sabaweli Education - Learning deluxe</title>
+    <!-- Google Analytics -->
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "<%=htmlWebpackPlugin.options.analyticsURL%>",
+        "ga"
+      );
+      ga("create", "G-VE0CXFEHY8", "auto");
+      ga("send", "pageview");
+    </script>
+    <!-- End Google Analytics -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

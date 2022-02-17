@@ -1,6 +1,6 @@
 import * as React from "react";
 import { PayPalButton } from "react-paypal-button-v2";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Notification from "antd/es/notification";
 
 import Server from "../../../../service/server";
@@ -24,7 +24,7 @@ export default function Paypal(): JSX.Element {
   const mounted = React.useRef<boolean>(true);
 
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   React.useEffect(() => {
     const { state } = location as LocationState;
     if (mounted.current) {
@@ -71,7 +71,7 @@ export default function Paypal(): JSX.Element {
                   type: "success",
                   message: response.data.message,
                 });
-                history.push("/profile");
+                navigate("/profile");
               } else {
                 Notification.open({
                   type: "error",

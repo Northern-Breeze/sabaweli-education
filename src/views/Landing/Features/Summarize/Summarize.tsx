@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './Summarize.scss';
 
 export default function Summary(): JSX.Element {
-    const history = useHistory();
+    const navigate = useNavigate();
     return (
         <div className="container">
                 <div className="card">
@@ -19,7 +19,7 @@ export default function Summary(): JSX.Element {
                     <button 
                         className="button"
                         onClick={() => {
-                            history.push('/profile')
+                            navigate('/profile')
                         }}
                         >Get Started</button>
                 </div>

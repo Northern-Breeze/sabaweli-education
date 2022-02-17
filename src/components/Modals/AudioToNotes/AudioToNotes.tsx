@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Modal from 'antd/es/modal';
 import Notification from 'antd/es/notification';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import './AudioToNotes.scss';
 
@@ -19,7 +19,7 @@ export default function AudioToNotes(props: Props): JSX.Element {
     const { openAudioModal, setAudioConvModal, setNetworkLoading } = props;
     const [file, setFile] = React.useState<File>()
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleCancel = () => {
         setAudioConvModal(false);
@@ -55,7 +55,7 @@ export default function AudioToNotes(props: Props): JSX.Element {
                         });
                         setAudioConvModal(false);
                         setNetworkLoading(false);
-                        history.push('/results?results=audio-to-text', { data: response.data.data });
+                        navigate('/results?results=audio-to-text', { state: {data: response.data.data} });
                 } else {
                     Notification.open({
                         message: 'Error',
