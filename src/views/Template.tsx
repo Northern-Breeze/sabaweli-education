@@ -1,7 +1,7 @@
 // eslint-disable jsx-a11y/anchor-is-valid
 import React from "react";
 import Logo from "../assets/logo.png";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 
 import "./Template.scss";
@@ -13,7 +13,7 @@ type Props = {
 export default function Template(props: Props): JSX.Element {
   const { children } = props;
   const [isActive, setActive] = React.useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="wrapper">
       <nav
@@ -74,7 +74,7 @@ export default function Template(props: Props): JSX.Element {
               <div className="buttons-container">
                 <Button
                   onClick={() => {
-                    history.push("/login");
+                    navigate("/login");
                   }}
                 >
                   Sign In
@@ -82,7 +82,7 @@ export default function Template(props: Props): JSX.Element {
                 <Button
                   className="secondary"
                   onClick={() => {
-                    history.push("/register");
+                    navigate("/register");
                   }}
                 >
                   Sign Up

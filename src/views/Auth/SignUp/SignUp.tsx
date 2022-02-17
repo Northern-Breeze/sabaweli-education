@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { notification } from 'antd';
 
 
@@ -21,7 +21,7 @@ interface Account {
 export default function SignUp(): JSX.Element {
     const {  errors, handleSubmit, register} = useForm<Account>();
     const [loading, setLoading] = React.useState(false);
-    const history = useHistory()
+    const navigate = useNavigate()
     const onSubmit = async (value: Account) => {
         try {
             setLoading(true);
@@ -42,7 +42,7 @@ export default function SignUp(): JSX.Element {
                         },
                       });
                     setLoading(false);
-                    history.push('/login');
+                    navigate('/login');
                 }else{
                     setLoading(false);
                     notification.open({

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Notification from 'antd/es/notification';
 
 import server from '../../../service/server';
@@ -9,7 +9,7 @@ export default function ChangePassword(): JSX.Element {
     const [password, setPassword] = React.useState("");
     const [token, setToken] = React.useState("");
     
-    const history = useHistory();
+    const navigate = useNavigate();
     const handleSubmit = async (event: React.SyntheticEvent): Promise<void> => {
       try {
         event.preventDefault();
@@ -21,7 +21,7 @@ export default function ChangePassword(): JSX.Element {
               message: response.data.message,
               type: "success",
             });
-            history.push("/login");
+            navigate("/login");
           } else {
             setLoading(false);
             Notification.open({

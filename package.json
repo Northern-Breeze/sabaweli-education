@@ -1,5 +1,6 @@
 {
   "name": "sabaweli-education",
+  "homepage": ".",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -29,7 +30,7 @@
     "react-hook-form": "^6.15.1",
     "react-paypal-button-v2": "^2.6.3",
     "react-progressive-bg-image": "^3.0.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "6",
     "react-scripts": "4.0.2",
     "typescript": "^4.1.2",
     "victory": "^35.10.0",
@@ -85,7 +86,7 @@
     "@types/axios": "^0.14.0",
     "@types/react-alert": "^5.2.0",
     "@types/react-helmet": "^6.1.1",
-    "@types/react-router-dom": "^5.1.7",
+    "@types/react-router-dom": "^5.3.3",
     "@types/react-stripe-elements": "^6.0.4",
     "@types/styled-components": "^5.1.7",
     "@types/wavesurfer.js": "^5.1.0",

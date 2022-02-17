@@ -1,5 +1,5 @@
 import * as React from "react";
-import Routes from "./routes/Routes";
+import AppRoutes from "./routes/Routes";
 import { createStore, StoreProvider as Provider } from "easy-peasy";
 import Store from "./store/index";
 import {Helmet} from "react-helmet";
@@ -15,7 +15,7 @@ function App(): JSX.Element {
         <title>Sabaweli Education - Learning Encapsulated</title>
         <link rel="canonical" href="http://sabaweli.xyz" />
       </Helmet>
-      <Routes />
+      <AppRoutes />
     </Provider>
   );
 }

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Menu from "antd/es/menu";
 import Layout from "antd/es/layout";
 import "./TemplateWrapper.scss";
@@ -25,7 +25,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
   const [collapsed, setCollapsed] = React.useState(false);
   const [isOnline, setOnline] = React.useState(true);
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const toggleNav = () => {
     setCollapsed(!collapsed);
   };
@@ -57,7 +57,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             key="1"
             icon={<UserOutlined />}
             onClick={() => {
-              history.push("/profile");
+              navigate("/profile");
             }}
           >
             Profile
@@ -66,7 +66,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             key="2"
             icon={<VideoCameraOutlined />}
             onClick={() => {
-              history.push("/profile/audio-2-notes");
+              navigate("/profile/audio-2-notes");
             }}
           >
             Audio to Notes
@@ -75,7 +75,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             key="4"
             icon={<ClockCircleOutlined />}
             onClick={() => {
-              history.push("/profile/study-coach");
+              navigate("/profile/study-coach");
             }}
           >
             Study Coach
@@ -84,7 +84,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             key="7"
             icon={<QuestionOutlined />}
             onClick={() => {
-              history.push("/profile/questions-simulator");
+              navigate("/profile/questions-simulator");
             }}
           >
             Question simulator
@@ -93,7 +93,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             key="5"
             icon={<SettingOutlined />}
             onClick={() => {
-              history.push("/profile/settings");
+              navigate("/profile/settings");
             }}
           >
             Settings
@@ -103,7 +103,7 @@ export default function TemplateWrapper(props: Props): JSX.Element {
             icon={<LogoutOutlined />}
             onClick={() => {
               localStorage.clear();
-              history.push("/login");
+              navigate("/login");
             }}
           >
             LogOut
