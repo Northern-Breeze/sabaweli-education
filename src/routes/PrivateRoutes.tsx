@@ -34,7 +34,7 @@ export default function PrivateRoute({ component: Component, ...rest }: any): JS
   return (
     <Route
       {...rest}
-      render={(props) =>
+      render={(props: any) =>
         valid ? (
           <Component {...props} />
         ) : (

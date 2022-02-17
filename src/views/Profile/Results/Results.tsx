@@ -19,7 +19,7 @@ function useQuery() {
 }
 
 export default function Results(): JSX.Element {
-  const location: Location = useLocation();
+  const location = useLocation() as Location;
   const query = useQuery();
   if (query.get("results") === "text-summary") {
     return <TextSummary textSummary={location.state?.data} />;

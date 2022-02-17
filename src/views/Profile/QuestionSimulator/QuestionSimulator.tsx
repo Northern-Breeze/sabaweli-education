@@ -1,6 +1,5 @@
 import * as React from "react";
 import TemplateWrapper from "../../TemplateWrapper";
-import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
 
 import "@tensorflow/tfjs-backend-webgl";
@@ -27,8 +26,9 @@ export default function QuestionSimulator(): JSX.Element {
   const [model, setModel] = React.useState<qna.QuestionAndAnswer>();
 
   // Refs
-  const passageRef = React.useRef<any>(null);
-  const questionRef = React.useRef<any>(null);
+  const passageRef = React.useRef<HTMLTextAreaElement>(null);
+  const questionRef = React.useRef<HTMLInputElement>(null);
+
   const mounted = React.useRef(true);
 
   // load model
@@ -45,9 +45,9 @@ export default function QuestionSimulator(): JSX.Element {
 
   const answerQuestion = async () => {
     if (model !== null) {
-      const passage = passageRef.current.value;
-      const question = questionRef.current.value;
-      if (model) {
+      const passage = passageRef?.current?.value;
+      const question = questionRef?.current?.value;
+      if (model && question && passage) {
         const answers = await model.findAnswers(question, passage);
         setAnswer(answers);
         console.log(answer);
