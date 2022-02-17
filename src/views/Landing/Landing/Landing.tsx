@@ -2,7 +2,7 @@ import * as React from "react";
 import Template from "../../Template";
 import Button from "../../../components/Button";
 import Notification from "antd/es/notification";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import Feature from "../../../components/Feature";
@@ -22,10 +22,10 @@ type ContactForm = {
 export default function Landing(): JSX.Element {
   const { handleSubmit, register, errors } = useForm<ContactForm>();
   const [loading, setLoading] = React.useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const goTo = (where: string) => {
-    history.push(where);
+    navigate(where);
   };
 
   const onSubmit = async (value: ContactForm) => {

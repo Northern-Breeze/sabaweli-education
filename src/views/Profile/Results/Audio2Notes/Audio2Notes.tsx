@@ -1,5 +1,5 @@
 import * as  React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Template from '../../../Template';
 
 type Props = {
@@ -7,10 +7,10 @@ type Props = {
 }
 export default function Audio2Notes(props: Props): JSX.Element {
     const { notes } = props;
-    const history = useHistory();
+    const navigate = useNavigate();
     React.useEffect(() => {
         if(notes === ''){
-            history.push('/profile');
+            navigate('/profile');
         }
     },[history, notes]);
 

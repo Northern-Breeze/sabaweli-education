@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLottie } from "lottie-react";
 import { notification } from "antd";
 import {
@@ -40,7 +40,7 @@ type User = {
 export default function Profile(): JSX.Element {
   const [user, setUser] = React.useState<User>();
   const [networkLoading, setNetworkLoading] = React.useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // Fetch users
   const fetchUser = async () => {
@@ -72,7 +72,7 @@ export default function Profile(): JSX.Element {
       <button
         className='button primary'
         onClick={() => {
-          history.push("/pricing");
+          navigate("/pricing");
         }}
       >
         Buy conversion {plan}

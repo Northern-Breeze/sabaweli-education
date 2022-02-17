@@ -1,6 +1,6 @@
 import * as React from "react";
 import Notification from "antd/es/notification";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./ForgotPasswordRequest.scss";
 
@@ -9,7 +9,7 @@ import server from "../../../service/server";
 export default function ForgotPasswordRequest(): JSX.Element {
   const [loading, setLoading] = React.useState(false);
   const [email, setEmail] = React.useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleSubmit = async (event: React.SyntheticEvent): Promise<void> => {
     try {
       event.preventDefault();
@@ -21,7 +21,7 @@ export default function ForgotPasswordRequest(): JSX.Element {
             message: response.data.message,
             type: "success",
           });
-          history.push("/login");
+          navigate("/login");
         } else {
           setLoading(false);
           Notification.open({

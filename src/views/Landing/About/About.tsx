@@ -1,15 +1,15 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Template from "../../Template";
 import Button from "../../../components/Button";
 
 import "./About.scss";
 
 export default function About(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const goTo = (where: string) => {
-    history.push(where);
+    navigate(where);
   };
 
   return (

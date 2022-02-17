@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Notification from "antd/es/notification";
 import Button from "../../../../components/Button";
@@ -19,7 +19,7 @@ const CheckoutForm = (props: Props): JSX.Element => {
   const elements = useElements();
   const options = useOptions();
   const { username } = useUser();
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -51,7 +51,7 @@ const CheckoutForm = (props: Props): JSX.Element => {
           .then((response) => {
             if (response.status === 200) {
               if(response.data.success){
-                history.push('/checkout?payment-status=success');
+                navigate('/checkout?payment-status=success');
               } else {
                 Notification.open({
                   type: 'error',
