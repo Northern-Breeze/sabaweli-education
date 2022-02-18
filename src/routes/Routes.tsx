@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import PrivateRoute from "./PrivateRoutes";
+import Loading from '../components/Loading';
 
 const SignIn = React.lazy(() => import("../views/Auth/SignIn"));
 const NotFound = React.lazy(() => import("../views/NotFound"));
@@ -27,7 +28,7 @@ const Contact = React.lazy(() => import("../views/Landing/Contact"));
 export default function AppRoutes(): JSX.Element {
   return (
     <Router>
-      <React.Suspense fallback='loading'>
+      <React.Suspense fallback={<Loading />}>
         <Routes>
           <Route path='/profile' element={<PrivateRoute component={Profile} />} />
           <Route
