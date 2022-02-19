@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import PrivateRoute from "./PrivateRoutes";
+const PrivateRoute = React.lazy(() => import("./PrivateRoutes"));
+
 import Loading from '../components/Loading';
+import Settings from "../views/Profile/Settings";
 
 const SignIn = React.lazy(() => import("../views/Auth/SignIn"));
 const NotFound = React.lazy(() => import("../views/NotFound"));
@@ -40,6 +42,7 @@ export default function AppRoutes(): JSX.Element {
             element={<PrivateRoute component={QuestionSimulator} />}
           />
           <Route path='/profile/study-coach' element={<PrivateRoute component={StudyCoach} />} />
+          <Route path='/profile/settings' element={<PrivateRoute component={Settings} />} />
           <Route path='/results' element={<PrivateRoute component={Results} />} />
           <Route path='/checkout' element={<PrivateRoute component={Checkout} />} />
           <Route path='/pricing' element={<Pricing />} />

@@ -70,7 +70,7 @@ export default function QuestionSimulator(): JSX.Element {
       <div className='qna-container'>
         <div className='model'>
           {model === null || model === undefined ? (
-            <div className='loading'>Loading ...</div>
+            <div className='loading'>Please be patient this will take time</div>
           ) : (
             <div className='info'>
               Enter Article or Passage
