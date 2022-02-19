@@ -4,7 +4,7 @@ import ReactGA from "react-ga";
 const usePageTracking = (): void => {
 
   React.useEffect(() => {
-    ReactGA.initialize("UA-000000000-0");
+    ReactGA.initialize("G-RKDEQ0N0F5");
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, [location]);
 };
