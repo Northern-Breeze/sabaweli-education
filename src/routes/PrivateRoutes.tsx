@@ -30,9 +30,5 @@ export default function PrivateRoute({
       });
   }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return valid ? <Component /> : <Navigate to="/login" />
 }
