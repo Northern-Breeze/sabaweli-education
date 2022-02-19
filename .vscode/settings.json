@@ -2,16 +2,17 @@
     "python.linting.enabled": true,
     "python.pythonPath": "/usr/bin/python3",
     "cSpell.words": [
-        "Bargraph",
-        "Linegraph",
-        "Sabaweli",
-        "Sider",
         "antd",
+        "Bargraph",
         "checkuser",
         "flac",
         "forgotpassword",
         "forgotpasswordrequest",
+        "Linegraph",
         "networkloading",
+        "pageview",
+        "Sabaweli",
+        "Sider",
         "tfjs",
         "wavesurfer"
     ]
