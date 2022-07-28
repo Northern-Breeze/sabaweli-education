@@ -21,7 +21,7 @@ export default function Paypal(): JSX.Element {
   const [price, setPrice] = React.useState(0);
   const [title, setTitle] = React.useState("");
   const [name, setName] = React.useState("");
-  const mounted = React.useRef<boolean>(true);
+  const mounted = React.useRef<boolean>(true); 
 
   const location = useLocation();
   const navigate = useNavigate();

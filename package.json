@@ -30,6 +30,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.1",
     "react-paypal-button-v2": "^2.6.3",
+    "react-paystack": "^3.0.5",
     "react-progressive-bg-image": "^3.0.0",
     "react-router-dom": "6",
     "react-scripts": "4.0.2",

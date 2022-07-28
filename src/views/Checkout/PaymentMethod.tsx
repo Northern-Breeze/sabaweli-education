@@ -6,6 +6,7 @@ import './PaymentMethods.scss';
 import StripeMethod from './PaymentMethods/Stripe';
 import Payfast from "./PaymentMethods/Payfast/Payfast";
 import Paypal from "./PaymentMethods/Paypal";
+import PayStack from "./PaymentMethods/PayStack/PayStack";
 
 const {TabPane} = Tabs;
 
@@ -22,8 +23,8 @@ export default function PaymentMethod(): JSX.Element {
             <TabPane tab="Stripe" key="2">
                <StripeMethod />
             </TabPane>
-            <TabPane tab="PayFast" key="3">
-                <Payfast email={email} loading={loading} />
+            <TabPane tab="PayStack" key="3">
+                <PayStack email={email} loading={loading} />
             </TabPane>
         </Tabs>
     </div>
