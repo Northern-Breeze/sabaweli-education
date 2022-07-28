@@ -4,9 +4,7 @@ import * as React from "react";
 import { Navigate } from "react-router-dom";
 import Server from "../service/server";
 
-export default function PrivateRoute({
-  component: Component,
-}: any): JSX.Element {
+export default function PrivateRoute({ component: Component }: any):  JSX.Element {
   const [valid, setValid] = React.useState(true);
   React.useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -24,5 +22,5 @@ export default function PrivateRoute({
       });
   }, []);
 
-  return valid ? <Component /> : <Navigate to="/login" />
+  return valid ? <Component /> : <Navigate to='/login' />;
 }

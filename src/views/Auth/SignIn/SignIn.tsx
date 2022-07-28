@@ -78,11 +78,9 @@ export default function SignIn(): JSX.Element {
       if (response.status === 200) {
         if (data.success) {
           notification.open({
-            message: "Success",
-            description: data.message,
-            onClick: () => {
-              console.log("Notification Clicked!");
-            },
+            message: data.message,
+            type: 'success'
+            
           });
           const token = data.token;
           localStorage.setItem("token", token);
@@ -95,11 +93,8 @@ export default function SignIn(): JSX.Element {
             setLoading(false);
           }
           notification.open({
-            message: "Something happened",
-            description: data.message,
-            onClick: () => {
-              console.log("Notification Clicked!");
-            },
+            message: data.message,
+            type: 'error'
           });
         }
       } else if (response.status === 400) {
@@ -107,22 +102,16 @@ export default function SignIn(): JSX.Element {
           setLoading(false);
         }
         notification.open({
-          message: "Something is wrong",
-          description: data.message,
-          onClick: () => {
-            console.log("Notification Clicked!");
-          },
+          message:  data.message,
+          type: 'error'
         });
       }
     } catch (error) {
       setLoading(false);
       console.log(error);
       notification.open({
-        message: "Error occurred",
-        description: "Please try again",
-        onClick: () => {
-          console.log("Notification Clicked!");
-        },
+        message: "Please try again, later",
+        type: 'error'
       });
     }
   };
