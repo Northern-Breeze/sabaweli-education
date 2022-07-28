@@ -6,7 +6,8 @@ const devConfig = {
     MERCHANT_ID: '10004002',
     PASSPHRASE: 'payfast',
     PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID || "",
-    APPLICATION_URL: 'http://localhost:8080'
+    APPLICATION_URL: 'http://localhost:8080',
+    PAY_STACK_PUBLIC: process.env.REACT_APP_PAY_STACK_PUBLIC || ''
 };
 
 const prodConfigs = {
@@ -17,7 +18,8 @@ const prodConfigs = {
     MERCHANT_ID: process.env.REACT_APP_MERCHANT_ID || "",
     PASSPHRASE: process.env.PASSPHRASE,
     PAYPAL_CLIENT_ID: process.env.REACT_APP_PAYPAL_CLIENT_ID_PROD || "",
-    APPLICATION_URL: process.env.REACT_APP_APPLICATION_ENDPOINT || ""
+    APPLICATION_URL: process.env.REACT_APP_APPLICATION_ENDPOINT || "",
+    PAY_STACK_PUBLIC: process.env.REACT_APP_PAY_STACK_PUBLIC || ''
 }
 
 export const config = process.env.NODE_ENV === 'development' ? devConfig : prodConfigs

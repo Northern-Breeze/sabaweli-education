@@ -33,9 +33,12 @@ const Server = {
     // Make notes
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     audioToText: (data: any): AxiosPromise => Axios.post('/upload', data),
+
     // Checkout
     checkData: (data: IData): AxiosPromise => Axios.post('/checkout/stripe/charge', data),
     paypalCheck: (data: { orderID: string, amount: number, paymentType: string, title: string, currency: string }): AxiosPromise => Axios.post('/checkout/paypal/checkout', data),
+    verifyPayStackPayment: (reference: string): AxiosPromise => Axios.post('/paystack/verify', {reference}),
+    
     // payfast signature
     payfastSignature: (data: ISignature): AxiosPromise => Axios.post('/checkout/payfast/signature', data),
 
@@ -45,7 +48,7 @@ const Server = {
     // Study
     getSessions: (): AxiosPromise => Axios.get('/study'),
     createSession: (data: { title: string }): AxiosPromise => Axios.post('/study/create', data),
-    addSessionEntry: (data: { title: string, timer: number }): AxiosPromise => Axios.post('/study/add', data)
+    addSessionEntry: (data: { title: string, timer: number }): AxiosPromise => Axios.post('/study/add', data),
 }
 
 export default Server;
